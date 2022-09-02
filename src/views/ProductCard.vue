@@ -1,10 +1,15 @@
 <template lang="pug">
 .product-card {{ $route.params.slug }}
-
-  h1.product-card__title Product title
+ 
+  h1.product-card__name {{ name }}
 </template>
 
-<script>
+<script setup>
+
+const props = defineProps({
+  name: { type: String, default: null },
+})
+
 </script>
 
 <style>
