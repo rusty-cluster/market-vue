@@ -3,17 +3,26 @@ import ProductCard from '@/views/ProductCard.vue'
 import { expect, test } from 'vitest'
 
 test('ProductCard renders title', () => {
-  const productTitle = 'Blank name'
   const wrapper = mount(ProductCard, {
-    propsData: {
-      name: productTitle
-    },
     global: {
       mocks: {
-        $route: {params: {slug:'test'}},
+        $route: { params: { slug:'test' } },
       }
     }
   })
 
-  expect(wrapper.text()).toContain(productTitle)
+  expect(wrapper.text()).toContain('Slowpoke')
+})
+
+test('ProductCard renders image of product', () => {
+  const productCard = mount(ProductCard, {
+    global: {
+      mocks: {
+        $route: { params: { slug:'test' } },
+      }
+    }
+  })
+  const image = productCard.find('.product-card__image')
+ 
+  expect(image.html()).toContain('assets/images/pokemon-slowpoke.png')
 })
