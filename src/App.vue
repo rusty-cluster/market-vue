@@ -4,12 +4,12 @@
 
 <style>
 @font-face
-  font-family: "Overpass"
-  src: url('@/assets/overpass-regular.woff2') format("woff2")
+  font-family: 'Sofia'
+  src: url('@/assets/fonts/sofia-regular.woff2') format('woff2')
 
 body
   margin: 0
-  font-family: "Overpass"
+  font-family: 'Sofia'
 
 .app
   min-height: 100vh
