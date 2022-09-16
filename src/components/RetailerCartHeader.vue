@@ -1,10 +1,10 @@
 <template lang="pug">
-.retailer-cart
-  .retailer-cart__item-quantity-and-total-price
-    span.retailer-cart__item-quantity {{ props.itemQuantity }}
+.retailer-cart-header
+  .retailer-cart-header__item-quantity-and-total-price
+    span.retailer-cart-header__item-quantity {{ props.itemQuantity }}
     span items
-    span.retailer-cart__total-price {{ props.totalPrice }} $ 
-  .retailer-cart__order-button Order
+    span.retailer-cart-header__total-price {{ props.totalPrice }} $ 
+  .retailer-cart-header__order-button Order
 </template>
 
 <script setup>
@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <style>
-.retailer-cart
+.retailer-cart-header
   font-size: 28px
   display: flex
   align-items: center
@@ -25,21 +25,21 @@ const props = defineProps({
   height: 50px
   background: #ccccff
 
-.retailer-cart__item-quantity-and-total-price
+.retailer-cart-header__item-quantity-and-total-price
   display: flex
   align-items: center
   justify-content: center
   height: 28px
 
-span.retailer-cart__item-quantity
+span.retailer-cart-header__item-quantity
   padding-right: 4px
   color: #ffffcc
 
-span.retailer-cart__total-price
+span.retailer-cart-header__total-price
   padding-left: 8px
   color: #ffffcc
 
-.retailer-cart__order-button
+.retailer-cart-header__order-button
   display: flex
   align-items: center
   justify-content: center

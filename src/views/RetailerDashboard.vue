@@ -1,10 +1,10 @@
 <template lang="pug">
 .retailer-dashboard
-  RetailerCart
+  RetailerCartHeader
 </template>
 
 <script setup>
-import RetailerCart from '@/components/RetailerCart.vue'
+import RetailerCartHeader from '@/components/RetailerCartHeader.vue'
 </script>
 
 <style>
