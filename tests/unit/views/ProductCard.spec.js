@@ -52,3 +52,17 @@ test('Renders the presence of a product', () => {
 
   expect(inStock.text()).toEqual('In Stock')
 })
+
+test('ProductCard adds a product to cart', async () => {
+  const productCard = mount(ProductCard, {
+    global: {
+      mocks: {
+        $route: { params: { slug:'test' } },
+      }
+    }
+  })
+
+  await productCard.find('.product-card__add-to-cart').trigger('click')
+
+  expect(productCard.find('.product-card__cart').text()).toBe('Cart(1)')
+})
