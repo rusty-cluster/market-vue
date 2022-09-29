@@ -4,6 +4,7 @@ import ProductCard from '@/views/ProductCard.vue'
 
 const RetailerCart = () => import('@/views/RetailerCart.vue')
 const RetailerDashboard = () => import('@/views/RetailerDashboard.vue')
+const RetailerOrders = () => import('@/views/RetailerOrders.vue')
 
 const routes = [
   {
@@ -15,6 +16,11 @@ const routes = [
     path: '/retailer-dashboard',
     name: 'RetailerDashboard',
     component: RetailerDashboard
+  },
+  {
+    path: '/retailer-orders',
+    name: 'RetailerOrders',
+    component: RetailerOrders
   },
   {
     path: '/vendor-dashboard',
