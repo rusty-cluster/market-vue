@@ -45,4 +45,9 @@ span.retailer-order__quantity
 span.retailer-order__total-price
   grid-area: total-price
   color: #118c4f
+
+@media (min-width: 810px)
+  .retailer-order
+    grid-template-areas:
+      'date name quantity total-price'
 </style>
