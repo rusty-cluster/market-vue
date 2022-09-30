@@ -37,5 +37,12 @@ const stubOrders = [
 
 <style>
 .retailer-orders
+  display: grid
+  grid-template-columns: 1fr min(100%, 800px) 1fr
+  align-content: start
   height: 100vh
+
+.retailer-orders > *
+  grid-column: 2
+  max-height: 150px
 </style>
