@@ -66,3 +66,15 @@ test('ProductCard adds a product to cart', async () => {
 
   expect(productCard.find('.product-card__cart').text()).toBe('Cart(1)')
 })
+
+test('ProductCard renders price', () => {
+  const productCard = mount(ProductCard, {
+    global: {
+      mocks: {
+        $route: { params: { slug:'test' } },
+      }
+    }
+  })
+
+  expect(productCard.find('.product-card__price').text()).toBe('$300')
+})
