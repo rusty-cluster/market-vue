@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import VendorDashboard from '@/views/VendorDashboard.vue'
-import ProductCard from '@/views/ProductCard.vue'
 
 const RetailerCart = () => import('@/views/RetailerCart.vue')
 const RetailerDashboard = () => import('@/views/RetailerDashboard.vue')
 const RetailerOrders = () => import('@/views/RetailerOrders.vue')
+const VendorDashboard = () => import('@/views/VendorDashboard.vue')
+const ProductCard = () => import('@/views/ProductCard.vue')
+const ProductList = () => import('@/views/ProductList.vue')
 
 const routes = [
   {
@@ -29,8 +30,14 @@ const routes = [
   },
   {
     path: '/products/:slug',
+    name: 'ProductCard',
     component: ProductCard
-  }
+  },
+  {
+    path: '/products',
+    name: 'ProductList',
+    component: ProductList
+  },
 ]
 
 const router = createRouter({
