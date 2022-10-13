@@ -62,9 +62,9 @@ Object.assign(product, {
 
 <style>
 .product-card
-  height: 100vh
+  margin: 0 16px
+  height: 100%
   display: grid
-  background: whitesmoke
   grid-template-areas:
     '.    .    .   '
     'name name cart'
@@ -74,7 +74,6 @@ Object.assign(product, {
     'description description description'
     'options options options'
     'add add add'
-  grid-template-rows:  repeat(8, 1fr)
   grid-template-columns: 1fr 1fr 1fr
 
 .product-card__name
@@ -85,7 +84,8 @@ Object.assign(product, {
   align-self: center
   padding: 10px
   font-size: 30px
-  border: 2px solid #d8d8d8
+  border: 1px solid var(--kamenozoki-grey)
+  border-radius: 20px
 
 .product-card__images
   grid-area: image
@@ -100,7 +100,7 @@ Object.assign(product, {
 .product-card__price
   grid-area: price
   font-size: 40px
-  color: cadetblue
+  color: var(--limone)
 
 .product-card__description
   grid-area: description
@@ -110,10 +110,10 @@ Object.assign(product, {
   display: flex
 
 .product-card__option
-  margin: 4px
+  margin-right: 20px
   padding: 10px
-  border: 2px solid #d8d8d8
-  border-radius: 10%
+  border: 1px solid var(--kamenozoki-grey)
+  border-radius: 10px
 
 .product-card__option-icon
   height: 70px
@@ -122,8 +122,10 @@ Object.assign(product, {
 .product-card__add-to-cart
   grid-area: add
   height: 40px
-  border: 2px solid #d8d8d8
-  position: sticky
-  bottom: 0
+  margin: 16px
+  border: 1px solid var(--kamenozoki-grey)
+  border-radius: 20px
+  font-family: inherit
+  font-size: 16px
 
 </style>
