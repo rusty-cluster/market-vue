@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import ProductCard from '@/views/ProductCard.vue'
 import { expect, test } from 'vitest'
 
-test('ProductCard renders title', () => {
+test('Renders title', () => {
   const productCard = mount(ProductCard, {
     global: {
       mocks: {
@@ -14,7 +14,7 @@ test('ProductCard renders title', () => {
   expect(productCard.text()).toContain('Slowpoke')
 })
 
-test('ProductCard renders image of product', () => {
+test('Renders image of product', () => {
   const productCard = mount(ProductCard, {
     global: {
       mocks: {
@@ -53,7 +53,7 @@ test('Renders the presence of a product', () => {
   expect(inStock.text()).toEqual('In Stock')
 })
 
-test('ProductCard adds a product to cart', async () => {
+test('Adds a product to cart', async () => {
   const productCard = mount(ProductCard, {
     global: {
       mocks: {
@@ -67,7 +67,37 @@ test('ProductCard adds a product to cart', async () => {
   expect(productCard.find('.product-card__cart').text()).toBe('Cart(1)')
 })
 
-test('ProductCard renders price', () => {
+test('Adds a product to increase quantity', async () => {
+  const productCard = mount(ProductCard, {
+    global: {
+      mocks: {
+        $route: { params: { slug:'test' } },
+      }
+    }
+  })
+
+  await productCard.find('.product-card__increase').trigger('click')
+  await productCard.find('.product-card__increase').trigger('click')
+
+  await productCard.find('.product-card__add-to-cart').trigger('click')
+  expect(productCard.find('.product-card__cart').text()).toBe('Cart(3)')
+})
+
+test('Adds a product to decrease quantity', async () => {
+  const productCard = mount(ProductCard, {
+    global: {
+      mocks: {
+        $route: { params: { slug:'test' } },
+      }
+    }
+  })
+
+  await productCard.find('.product-card__decrease').trigger('click')
+
+  expect(productCard.find('.product-card__counter').text()).toBe('0')
+})
+
+test('Renders price', () => {
   const productCard = mount(ProductCard, {
     global: {
       mocks: {
