@@ -1,6 +1,6 @@
 <template lang='pug'>
 .product-card
-  .product-card__cart Cart({{ product.cart }})
+  VendorHeader
 
   h1.product-card__name {{ product.name }}
   .product-card__images
@@ -24,14 +24,15 @@
     .product-card__counter {{ product.quantity }}
     button.product-card__increase(@click='increaseQuantity') +
 
-  button.product-card__add-to-cart(
-    @click='addToCart'
-    ) Add to Cart
+  button.product-card__add-to-cart Add to Cart
 
+  VendorFooter
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
+import VendorHeader from '@/components/VendorHeader.vue'
+import VendorFooter from '@/components/VendorFooter.vue'
 
 const product = reactive({
   name: null,
@@ -39,7 +40,6 @@ const product = reactive({
   price: null,
   description: null,
   inStock: null,
-  cart: null,
 })
 
 function updateImage(imageURL) {
@@ -56,10 +56,6 @@ function decreaseQuantity(event) {
   return product.quantity -= 1
 }
 
-function addToCart(event) {
-  product.cart += product.quantity
-}
-
 Object.assign(product, {
   name: 'Slowpoke',
   image: new URL('../assets/images/pokemon-slowpoke.png', import.meta.url).href,
@@ -71,61 +67,40 @@ Object.assign(product, {
     { id: 2222, option: 'Slowbro', image: new URL('../assets/images/pokemon-slowbro.png', import.meta.url).href },
   ],
   quantity: 1,
-  cart: 0,
 })
 </script>
 
 <style>
 .product-card
-  height: 100%
-  display: grid
-  grid-template-columns: minmax(0, 0.2fr) 1fr 1fr 1fr minmax(0, 0.2fr)
-  grid-template-areas:
-    '  .   name        name        cart          .  '
-    '  .   image       image       image         .  '
-    '  .   stock       stock       stock         .  '
-    '  .   price       price       price         .  '
-    '  .   options     options     options       .  '
-    '  .   description description description   .  '
-    '  .   quantity    quantity    quantity      .  '
-    '  .   add         add         add           .  '
+  display: flex
+  flex-direction: column
 
 .product-card__name
-  grid-area: name
-
-.product-card__cart
-  grid-area: cart
-  align-self: center
-  text-align: center
-  padding: 10px
-  font-size: 20px
-  border: 1px solid var(--kamenozoki-grey)
-  border-radius: 20px
+  margin: 0 10px
 
 .product-card__images
-  grid-area: image
+  margin: 0 10px
 
 .product-card__image
   max-width: 100%
   height: auto
 
 .product-card__in-stock
-  grid-area: stock
+  margin: 0 10px
 
 .product-card__price
-  grid-area: price
   font-size: 40px
   color: var(--limone)
   line-height: 1
+  margin: 0 10px
 
 .product-card__description
-  grid-area: description
-  margin-bottom: 5vh
+  margin: 10px
 
 .product-card__options
-  grid-area: options
   display: flex
-  margin-top: 16px
+  margin: 0 10px
+  padding-top: 16px
 
 .product-card__option
   margin-right: 20px
@@ -138,13 +113,14 @@ Object.assign(product, {
   width: 70px
 
 .product-card__quantity
-  grid-area: quantity
   display: flex
-  justify-content: space-between
   align-items: center
+  justify-content: space-between
   border: 1px solid var(--kamenozoki-grey)
+  background-color: var(--lynx-white)
   border-radius: 20px
   height: 40px
+  margin: 10px
 
 .product-card__increase
   width: 40px
@@ -165,12 +141,13 @@ Object.assign(product, {
   cursor: pointer
 
 .product-card__add-to-cart
-  grid-area: add
   height: 40px
-  margin: 16px 0
+  margin: 10px
   border: 1px solid var(--kamenozoki-grey)
   border-radius: 20px
   font-family: inherit
   font-size: 16px
 
+.product-card__footer
+  height: 40px
 </style>

@@ -1,5 +1,8 @@
 <template lang="pug">
-h1 Vendor dashboard
+.vendor-dashboard
+  VendorHeader
+  h1 Vendor dashboard
+  VendorFooter
 </template>
 
 <script setup>
