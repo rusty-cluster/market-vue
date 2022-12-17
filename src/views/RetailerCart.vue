@@ -1,8 +1,7 @@
 <template lang="pug">
 .retailer-cart
-  RetailerCartHeader(
-    :itemQuantity='20'
-    :totalPrice='34500'
+  RetailerHeader(
+    :cartItemsQuantity='20'
   )
   .retailer-cart-items
     RetailerCartItem(
@@ -12,10 +11,12 @@
       :price='stubCartItem.price'
       :key='stubCartItem.name'
     )
+  RetailerFooter
 </template>
 
 <script setup>
-import RetailerCartHeader from '@/components/RetailerCartHeader.vue'
+import RetailerHeader from '@/components/RetailerHeader.vue'
+import RetailerFooter from '@/components/RetailerFooter.vue'
 import RetailerCartItem from '@/components/RetailerCartItem.vue'
 
 const stubCartItems = [
@@ -56,5 +57,4 @@ const stubCartItems = [
   flex-direction: column
   align-items: center
   justify-content: center
-  top: 50
 </style>

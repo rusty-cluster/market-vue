@@ -1,5 +1,8 @@
 <template lang="pug">
 .retailer-orders
+  RetailerHeader(
+    :cartItemsQuantity='20'
+  )
   RetailerOrder(
     v-for='stubOrder in stubOrders.slice().reverse()'
     :timestamp='stubOrder.timestamp'
@@ -8,9 +11,12 @@
     :totalPrice='stubOrder.totalPrice'
     :key='stubOrder.timestamp'
   )
+  RetailerFooter
 </template>
 
 <script setup>
+import RetailerHeader from '@/components/RetailerHeader.vue'
+import RetailerFooter from '@/components/RetailerFooter.vue'
 import RetailerOrder from '@/components/RetailerOrder.vue'
 
 const stubOrders = [
