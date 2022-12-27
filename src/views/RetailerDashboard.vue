@@ -1,10 +1,14 @@
 <template lang="pug">
 .retailer-dashboard
-  RetailerCartHeader
+  RetailerHeader(
+    :cartItemsQuantity='20'
+  )
+  RetailerFooter
 </template>
 
 <script setup>
-import RetailerCartHeader from '@/components/RetailerCartHeader.vue'
+import RetailerHeader from '@/components/RetailerHeader.vue'
+import RetailerFooter from '@/components/RetailerFooter.vue'
 </script>
 
 <style>
