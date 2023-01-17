@@ -1,17 +1,27 @@
 <template lang='pug'>
 li.retailer-product-tile
   .retailer-product-tile__info
-    .retailer-product-tile__name {{ props.product.name }}
-    .retailer-product-tile__price ${{ props.product.price }}
+    .retailer-product-tile__name {{ props.product['name'] }}
+    .retailer-product-tile__price ${{ props.product['price'] }}
     span.retailer-product-tile__in-stock In Stock
-    .retailer-product-tile__description {{ props.product.description }}
-    .retailer-product-tile__add-to-cart-button Add to Cart
+    .retailer-product-tile__description {{ props.product['description'] }}
+    .retailer-product-tile__add-to-cart-button(
+      @click="$emit('addOrIncreaseQuantity', productInfo)"
+    ) Add to Cart
 </template>
 
 <script setup>
 const props = defineProps({
   product: { type: Object, default: () => {} },
 })
+
+const emit = defineEmits(['addOrIncreaseQuantity'])
+
+const productInfo = {
+  id: props.product['id'],
+  price: props.product['price'],
+  quantity: 1,
+}
 </script>
 
 <style>

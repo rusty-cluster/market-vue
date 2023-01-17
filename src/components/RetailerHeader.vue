@@ -3,19 +3,34 @@
   .retailer-header__navbar
     .retailer-header__menu-button
     span.retailer-header__logo .mrkt
-    span.retailer-header__cart-items-quantity {{ props.cartItemsQuantity }}
+    span.retailer-header__cart-total-price ${{ cartTotalPrice }}
+    span.retailer-header__cart-total-quantity {{ cartTotalQuantity }}
     .retailer-header__go-to-cart-button
   RetailerProductSearchField(
-    v-if='isSearchFieldRendered === true'
+    v-if='props.isSearchFieldRendered === true'
   )
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 import RetailerProductSearchField from '@/components/RetailerProductSearchField.vue'
 
 const props = defineProps({
-  cartItemsQuantity: { type: Number, default: 0 },
+  cartItems: { type: Array, default: () => [] },
   isSearchFieldRendered: { type: Boolean, default: false },
+})
+
+const cartTotalPrice = computed(() => {
+  return props.cartItems.reduce((acc, currentCartItem) => {
+    return acc + currentCartItem['price'] * currentCartItem['quantity']
+  }, 0)
+})
+
+const cartTotalQuantity = computed(() => {
+  return props.cartItems.reduce((acc, currentCartItem) => {
+    return acc + currentCartItem['quantity']
+  }, 0)
 })
 </script>
 
@@ -63,7 +78,13 @@ span.retailer-header__logo
   padding-left: 8px
   padding-right: 8px
 
-span.retailer-header__cart-items-quantity
+span.retailer-header__cart-total-price
+  font-size: 16px
+  color: var(--nero)
+  padding-left: 8px
+  padding-right: 8px
+
+span.retailer-header__cart-total-quantity
   font-size: 16px
   color: var(--nero)
 
