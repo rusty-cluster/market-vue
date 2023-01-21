@@ -7,6 +7,7 @@ const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
 const VendorDashboard = () => import('@/views/VendorDashboard.vue')
 const ProductCard = () => import('@/views/ProductCard.vue')
 const ProductList = () => import('@/views/ProductList.vue')
+const AddProduct = () => import('@/views/AddProduct.vue')
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: '/products',
     name: 'ProductList',
     component: ProductList
+  },
+  {
+    path: '/products/add',
+    name: 'AddProduct',
+    component: AddProduct
   },
 ]
 

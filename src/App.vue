@@ -25,7 +25,7 @@ body
 
 .app
   min-height: 100vh
-  background: var(--bleached-silk)
+  background: var(--faded-grey)
 
 a
   color: #808080
