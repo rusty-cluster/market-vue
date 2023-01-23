@@ -31,22 +31,22 @@ const routes = [
     component: RetailerProductSearch
   },
   {
-    path: '/vendor-dashboard',
+    path: '/vendor',
     name: 'VendorDashboard',
     component: VendorDashboard
   },
   {
-    path: '/products/:slug',
+    path: '/vendor/products/:slug',
     name: 'ProductCard',
     component: ProductCard
   },
   {
-    path: '/products',
+    path: '/vendor/products',
     name: 'ProductList',
     component: ProductList
   },
   {
-    path: '/products/add',
+    path: '/vendor/products/add',
     name: 'AddProduct',
     component: AddProduct
   },
