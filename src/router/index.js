@@ -11,22 +11,22 @@ const AddProduct = () => import('@/views/AddProduct.vue')
 
 const routes = [
   {
-    path: '/retailer-cart',
+    path: '/retailer/cart',
     name: 'RetailerCart',
     component: RetailerCart
   },
   {
-    path: '/retailer-dashboard',
+    path: '/retailer',
     name: 'RetailerDashboard',
     component: RetailerDashboard
   },
   {
-    path: '/retailer-orders',
+    path: '/retailer/orders',
     name: 'RetailerOrders',
     component: RetailerOrders
   },
   {
-    path: '/retailer-product-search',
+    path: '/retailer/product-search',
     name: 'RetailerProductSearch',
     component: RetailerProductSearch
   },
