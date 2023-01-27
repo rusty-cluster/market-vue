@@ -15,7 +15,7 @@
   align-items: center
   box-sizing: border-box
   background: var(--faded-grey)
-  margin: 0 20px
+  padding: 0 20px
   position: sticky
   top: 0
   height: 11vh

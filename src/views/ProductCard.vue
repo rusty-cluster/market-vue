@@ -2,29 +2,29 @@
 .product-card
   VendorHeader
 
+  .product-card__category {{ product.category }}
   h1.product-card__name {{ product.name }}
+
   .product-card__images
     img.product-card__image(:src='product.image')
-
-  .product-card__in-stock
-    span.product-card__in-stock_true(v-if='product.inStock') In Stock
-    span.product-card__in-stock_false(v-else='product.inStock') Out of Stock
-  .product-card__price ${{  product.price  }}
   .product-card__options
     .product-card__option(
       v-for='option in product.options'
       :key='option.id'
       @mouseover='updateImage(option.image)'
       )
-        img.product-card__option-icon(:src='option.image')
+      img.product-card__option-icon(:src='option.image')
+
+  span.product-card__quantity-label.product-card__quantity-label_in-stock(v-if='product.inStock') In Stock
+  span.product-card__quantity-label.product-card__quantity-label_out-of-stock(v-else) Out of Stock
+
+  .product-card__price ${{  product.price  }}
   p.product-card__description {{  product.description  }}
 
-  .product-card__quantity
-    button.product-card__decrease(@click='decreaseQuantity') -
-    .product-card__counter {{ product.quantity }}
-    button.product-card__increase(@click='increaseQuantity') +
-
-  button.product-card__add-to-cart Add to Cart
+  router-link.product-card__edit(to='/vendor/products/add')
+    .product-card__edit-button Edit
+    .product-card__edit-icon
+      img.product-card__edit-icon-svg(src='@/assets/icons/right-arrow.svg')
 
   VendorFooter
 </template>
@@ -46,17 +46,8 @@ function updateImage(imageURL) {
   product.image = imageURL
 }
 
-function increaseQuantity(event) {
-  product.quantity += 1
-}
-
-function decreaseQuantity(event) {
-  if (product.quantity === 0) return
-
-  return product.quantity -= 1
-}
-
 Object.assign(product, {
+  category: 'POKEMON',
   name: 'Slowpoke',
   image: new URL('../assets/images/pokemon-slowpoke.png', import.meta.url).href,
   price: 300,
@@ -66,7 +57,6 @@ Object.assign(product, {
     { id: 3333, option: 'Slowpoke', image: new URL('../assets/images/pokemon-slowpoke.png', import.meta.url).href },
     { id: 2222, option: 'Slowbro', image: new URL('../assets/images/pokemon-slowbro.png', import.meta.url).href },
   ],
-  quantity: 1,
 })
 </script>
 
@@ -75,79 +65,83 @@ Object.assign(product, {
   display: flex
   flex-direction: column
 
+.product-card__category
+  font-size: 12px
+  display: flex
+  justify-content: center
+
 .product-card__name
-  margin: 0 10px
+  display: flex
+  justify-content: center
+  margin: 0 18px
+  font-weight: 400
+  font-size: 40px
+  padding-bottom: 30px
+  line-height: 0.5
 
 .product-card__images
-  margin: 0 10px
+  padding: 18px 18px 0 18px
+  background: var(--lynx-white)
 
 .product-card__image
   max-width: 100%
   height: auto
 
-.product-card__in-stock
-  margin: 0 10px
+.product-card__options
+  display: flex
+  padding: 18px
+  background: var(--lynx-white)
+
+.product-card__option
+  border: 1px solid var(--cloudy-today)
+  border-radius: 6px
+  margin-right: 20px
+  padding: 10px
+  border-radius: 10px
+
+.product-card__quantity-label
+  margin: 0 18px
+  padding-top: 18px
 
 .product-card__price
   font-size: 40px
   color: var(--limone)
   line-height: 1
-  margin: 0 10px
+  margin: 0 18px
 
 .product-card__description
-  margin: 10px
-
-.product-card__options
-  display: flex
-  margin: 0 10px
-  padding-top: 16px
-
-.product-card__option
-  margin-right: 20px
-  padding: 10px
-  border: 1px solid var(--kamenozoki-grey)
-  border-radius: 10px
+  margin: 18px
+  padding-bottom: 30px
 
 .product-card__option-icon
   height: 70px
   width: 70px
 
-.product-card__quantity
+.product-card__edit
+  width: 60vw
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px
+  margin: 20px auto
+  border-radius: 10px
+  cursor: pointer
+  background: var(--lynx-white)
+
+.product-card__edit-button
+  padding-left: 10px
+  color: var(--nero)
+
+.product-card__edit-icon
   display: flex
   align-items: center
-  justify-content: space-between
-  border: 1px solid var(--kamenozoki-grey)
-  background-color: var(--lynx-white)
-  border-radius: 20px
-  height: 40px
-  margin: 10px
+  justify-content: center
+  background: var(--faded-grey)
+  border-radius: 100%
+  height: 30px
+  width: 30px
 
-.product-card__increase
-  width: 40px
-  height: 40px
-  font-family: inherit
-  font-size: 16px
-  border: 0
-  background: 0
-  cursor: pointer
-
-.product-card__decrease
-  width: 40px
-  height: 40px
-  font-family: inherit
-  font-size: 16px
-  border: 0
-  background: 0
-  cursor: pointer
-
-.product-card__add-to-cart
-  height: 40px
-  margin: 10px
-  border: 1px solid var(--kamenozoki-grey)
-  border-radius: 20px
-  font-family: inherit
-  font-size: 16px
-
-.product-card__footer
-  height: 40px
+.product-card__edit-icon-svg
+  height: 14px
+  width: 14px
 </style>
