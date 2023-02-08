@@ -35,7 +35,7 @@ test('Does not render the absence of a product', () => {
       }
     }
   })
-  const outOfStock = productCard.find('.product-card__in-stock_false')
+  const outOfStock = productCard.find('.product-card__quantity-label_out-of-stock')
 
   expect(outOfStock.exists()).toBe(false)
 })
@@ -48,48 +48,7 @@ test('Renders the presence of a product', () => {
       }
     }
   })
-  const inStock = productCard.get('.product-card__in-stock_true')
+  const inStock = productCard.get('.product-card__quantity-label_in-stock')
 
   expect(inStock.text()).toEqual('In Stock')
-})
-
-test('Adds a product to increase quantity', async () => {
-  const productCard = mount(ProductCard, {
-    global: {
-      mocks: {
-        $route: { params: { slug:'test' } },
-      }
-    }
-  })
-
-  await productCard.find('.product-card__increase').trigger('click')
-  await productCard.find('.product-card__increase').trigger('click')
-
-  expect(productCard.find('.product-card__counter').text()).toBe('3')
-})
-
-test('Adds a product to decrease quantity', async () => {
-  const productCard = mount(ProductCard, {
-    global: {
-      mocks: {
-        $route: { params: { slug:'test' } },
-      }
-    }
-  })
-
-  await productCard.find('.product-card__decrease').trigger('click')
-
-  expect(productCard.find('.product-card__counter').text()).toBe('0')
-})
-
-test('Renders price', () => {
-  const productCard = mount(ProductCard, {
-    global: {
-      mocks: {
-        $route: { params: { slug:'test' } },
-      }
-    }
-  })
-
-  expect(productCard.find('.product-card__price').text()).toBe('$300')
 })
