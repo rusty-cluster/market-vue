@@ -3,9 +3,9 @@ import RetailerCart from '@/views/RetailerCart.vue'
 import RetailerCartItem from '@/components/RetailerCartItem.vue'
 import { expect, test } from 'vitest'
 
-test('renders RetailerCart items', () => {
+test('correctly renders retailer-cart__list', () => {
   const wrapper = mount(RetailerCart)
-  const retailerCartItems = wrapper.findAllComponents(RetailerCartItem)
+  const retailerCartList = wrapper.findAllComponents(RetailerCartItem)
 
-  expect(retailerCartItems.length).toBe(5)
+  expect(retailerCartList.length).toBe(5)
 })

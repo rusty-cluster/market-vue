@@ -4,7 +4,7 @@ import RetailerHeader from '@/components/RetailerHeader.vue'
 import RetailerProductTile from '@/components/RetailerProductTile.vue'
 import { expect, test } from 'vitest'
 
-test('renders retailer product tiles', () => {
+test('correctly renders retailer-product-search__list', () => {
   const wrapper = mount(RetailerProductSearch)
   const retailerProductTiles = wrapper.findAllComponents(RetailerProductTile)
 

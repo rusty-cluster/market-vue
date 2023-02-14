@@ -3,9 +3,9 @@ import RetailerOrders from '@/views/RetailerOrders.vue'
 import RetailerOrder from '@/components/RetailerOrder.vue'
 import { expect, test } from 'vitest'
 
-test('renders retailer orders', () => {
+test('correctly renders retailer-orders__list', () => {
   const wrapper = mount(RetailerOrders)
-  const retailerOrders = wrapper.findAllComponents(RetailerOrder)
+  const retailerOrdersList = wrapper.findAllComponents(RetailerOrder)
 
-  expect(retailerOrders.length).toBe(3)
+  expect(retailerOrdersList.length).toBe(5)
 })

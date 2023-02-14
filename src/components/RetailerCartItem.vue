@@ -1,8 +1,8 @@
 <template lang="pug">
-.retailer-cart-item
-  span.retailer-cart-item__quantity {{ props.quantity }}
+li.retailer-cart-item
   span.retailer-cart-item__name  {{ props.name }}
-  span.retailer-cart-item__total-price  {{ props.price * props.quantity }} $
+  span.retailer-cart-item__total-price  ${{ props.price * props.quantity }}
+  span.retailer-cart-item__quantity  qty {{ props.quantity }}
 </template>
 
 <script setup>
@@ -14,24 +14,28 @@ const props = defineProps({
 </script>
 
 <style>
-.retailer-cart-item
-  font-size: 28px
+li.retailer-cart-item
+  font-size: 20px
   display: flex
   align-items: center
-  justify-content: space-between
-  height: 28px
-  min-width: min(90%, 65ch)
-  margin: 4px
-  padding: 4px
-  border-style: solid
-  border-width: thin
-  border-radius: 4px
+  justify-content: center
+  min-height: 4vh
+  margin: 0 0 2vh
+  padding: 1vh
+  border-radius: 24px
+  background: var(--bleached-silk)
+  box-shadow: 0 4px 20px var(--kamenozoki-grey)
+
+span.retailer-cart-item__name
+  flex-grow: 10
+  color: var(--cloudy-today)
+  padding: 0 1vh
 
 span.retailer-cart-item__quantity
-  padding-right: 4px
-  color: #118c4f
+  color: var(--nero)
+  padding-right: 1vh
 
 span.retailer-cart-item__total-price
-  padding-left: 8px
-  color: #118c4f
+  color: var(--nero)
+  padding-right: 1vh
 </style>

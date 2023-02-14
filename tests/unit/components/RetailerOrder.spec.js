@@ -4,13 +4,23 @@ import { expect, test } from 'vitest'
 
 test('renders name, quantity and price', () => {
   const wrapper = mount(
-    RetailerOrder, { props: { name: '92852402-0011', quantity: 1, totalPrice: 12500 } }
+    RetailerOrder, { props: {
+      id: 676416454000,
+      timestamp: 1676416454000,
+      cartItems: [
+        {
+          id: 79,
+          price: 300,
+          quantity: 11,
+        },
+      ],
+    }}
   )
-  const retailerOrderName = wrapper.get('span.retailer-order__name')
-  const retailerOrderQuantity = wrapper.get('span.retailer-order__quantity')
+  const retailerOrderId = wrapper.get('span.retailer-order__id')
+  const retailerOrderTotalQuantity = wrapper.get('span.retailer-order__total-quantity')
   const retailerOrderTotalPrice = wrapper.get('span.retailer-order__total-price')
 
-  expect(retailerOrderName.text()).toContain('92852402-0011')
-  expect(retailerOrderQuantity.text()).toContain('1')
-  expect(retailerOrderTotalPrice.text()).toContain('12500')
+  expect(retailerOrderId.text()).toContain('676416454000')
+  expect(retailerOrderTotalQuantity.text()).toContain('11')
+  expect(retailerOrderTotalPrice.text()).toContain('3300')
 })

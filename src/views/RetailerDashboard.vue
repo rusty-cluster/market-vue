@@ -1,8 +1,7 @@
 <template lang="pug">
 .retailer-dashboard
-  RetailerHeader(
-    :cartItemsQuantity='20'
-  )
+  RetailerHeader
+  .retailer-dashboard__main
   RetailerFooter
 </template>
 
@@ -13,5 +12,12 @@ import RetailerFooter from '@/components/RetailerFooter.vue'
 
 <style>
 .retailer-dashboard
-  height: 100vh
+  display: grid
+  grid-template-columns: 1fr min(100%, 800px) 1fr
+  grid-template-rows: auto 1fr auto
+  align-content: start
+  min-height: 100vh
+
+.retailer-dashboard > *
+  grid-column: 2
 </style>
