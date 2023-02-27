@@ -1,30 +1,30 @@
 <template lang='pug'>
-.product-card
+.vendor-product-card
   VendorHeader
 
-  .product-card__category {{ product.category }}
-  h1.product-card__name {{ product.name }}
+  .vendor-product-card__category {{ product.category }}
+  h1.vendor-product-card__name {{ product.name }}
 
-  .product-card__images
-    img.product-card__image(:src='product.image')
-  .product-card__options
-    .product-card__option(
+  .vendor-product-card__images
+    img.vendor-product-card__image(:src='product.image')
+  .vendor-product-card__options
+    .vendor-product-card__option(
       v-for='option in product.options'
       :key='option.id'
       @mouseover='updateImage(option.image)'
       )
-      img.product-card__option-icon(:src='option.image')
+      img.vendor-product-card__option-icon(:src='option.image')
 
-  span.product-card__quantity-label.product-card__quantity-label_in-stock(v-if='product.inStock') In Stock
-  span.product-card__quantity-label.product-card__quantity-label_out-of-stock(v-else) Out of Stock
+  span.vendor-product-card__quantity-label.vendor-product-card__quantity-label_in-stock(v-if='product.inStock') In Stock
+  span.vendor-product-card__quantity-label.vendor-product-card__quantity-label_out-of-stock(v-else) Out of Stock
 
-  .product-card__price ${{  product.price  }}
-  p.product-card__description {{  product.description  }}
+  .vendor-product-card__price ${{  product.price  }}
+  p.vendor-product-card__description {{  product.description  }}
 
-  router-link.product-card__edit(to='/vendor/products/add')
-    .product-card__edit-button Edit
-    .product-card__edit-icon
-      img.product-card__edit-icon-svg(src='@/assets/icons/right-arrow.svg')
+  router-link.vendor-product-card__edit(to='/vendor/products/add')
+    .vendor-product-card__edit-button Edit
+    .vendor-product-card__edit-icon
+      img.vendor-product-card__edit-icon-svg(src='@/assets/icons/right-arrow.svg')
 
   VendorFooter
 </template>
@@ -61,16 +61,16 @@ Object.assign(product, {
 </script>
 
 <style>
-.product-card
+.vendor-product-card
   display: flex
   flex-direction: column
 
-.product-card__category
+.vendor-product-card__category
   font-size: 12px
   display: flex
   justify-content: center
 
-.product-card__name
+.vendor-product-card__name
   display: flex
   justify-content: center
   margin: 0 18px
@@ -79,45 +79,45 @@ Object.assign(product, {
   padding-bottom: 30px
   line-height: 0.5
 
-.product-card__images
+.vendor-product-card__images
   padding: 18px 18px 0 18px
   background: var(--lynx-white)
 
-.product-card__image
+.vendor-product-card__image
   max-width: 100%
   height: auto
 
-.product-card__options
+.vendor-product-card__options
   display: flex
   padding: 18px
   background: var(--lynx-white)
 
-.product-card__option
+.vendor-product-card__option
   border: 1px solid var(--cloudy-today)
   border-radius: 6px
   margin-right: 20px
   padding: 10px
   border-radius: 10px
 
-.product-card__quantity-label
+.vendor-product-card__quantity-label
   margin: 0 18px
   padding-top: 18px
 
-.product-card__price
+.vendor-product-card__price
   font-size: 40px
   color: var(--limone)
   line-height: 1
   margin: 0 18px
 
-.product-card__description
+.vendor-product-card__description
   margin: 18px
   padding-bottom: 30px
 
-.product-card__option-icon
+.vendor-product-card__option-icon
   height: 70px
   width: 70px
 
-.product-card__edit
+.vendor-product-card__edit
   width: 60vw
   display: flex
   justify-content: space-between
@@ -128,11 +128,11 @@ Object.assign(product, {
   cursor: pointer
   background: var(--lynx-white)
 
-.product-card__edit-button
+.vendor-product-card__edit-button
   padding-left: 10px
   color: var(--nero)
 
-.product-card__edit-icon
+.vendor-product-card__edit-icon
   display: flex
   align-items: center
   justify-content: center
@@ -141,7 +141,7 @@ Object.assign(product, {
   height: 30px
   width: 30px
 
-.product-card__edit-icon-svg
+.vendor-product-card__edit-icon-svg
   height: 14px
   width: 14px
 </style>

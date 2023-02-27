@@ -1,11 +1,11 @@
 <template lang='pug'>
-.add-product
+.vendor-add-product
   VendorHeader
 
-  form.add-product__form
-    p.add-product__form-item
-      label.add-product__form-label(for='id') ID
-      input.add-product__form-input(
+  form.vendor-add-product__form
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='id') ID
+      input.vendor-add-product__form-input(
         v-model='product.id'
         type='text'
         placeholder='id'
@@ -13,14 +13,14 @@
         required
       )
 
-    p.add-product__form-item
-      label.add-product__form-label(for='select') Category:
-      select.add-product__form-select(v-model='product.category_id' name='select' required)
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='select') Category:
+      select.vendor-add-product__form-select(v-model='product.category_id' name='select' required)
         option(v-for='category in categories') {{ category.text }}
 
-    p.add-product__form-item
-      label.add-product__form-label(for='name') Name
-      input.add-product__form-input(
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='name') Name
+      input.vendor-add-product__form-input(
         v-model='product.name'
         type='text'
         placeholder='name'
@@ -28,18 +28,18 @@
         required
       )
 
-    p.add-product__form-item
-      label.add-product__form-label(for='price') Price
-      input.add-product__form-input(
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='price') Price
+      input.vendor-add-product__form-input(
         v-model.number='product.price'
         type='number'
         name='price'
         required
       )
 
-    p.add-product__form-item
-      label.add-product__form-label(for='description') Description
-      textarea.add-product__form-input(
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='description') Description
+      textarea.vendor-add-product__form-input(
         v-model='product.description'
         type='text'
         placeholder='description'
@@ -47,15 +47,15 @@
         required
       )
 
-    p.add-product__form-item
-      label.add-product__form-label(for='inserted_at')
-      input.add-product__form-input(readonly='true' :value='product.inserted_at' name='inserted_at')
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='inserted_at')
+      input.vendor-add-product__form-input(readonly='true' :value='product.inserted_at' name='inserted_at')
 
-    p.add-product__form-item
-      label.add-product__form-label(for='updated_at')
-      input.add-product__form-input(readonly='true' :value='product.updated_at' name='updated_at')
+    p.vendor-add-product__form-item
+      label.vendor-add-product__form-label(for='updated_at')
+      input.vendor-add-product__form-input(readonly='true' :value='product.updated_at' name='updated_at')
 
-    .add-product__button-save Save
+    .vendor-add-product__button-save Save
 
   VendorFooter
 </template>
@@ -85,30 +85,30 @@ const categories = reactive([
 </script>
 
 <style>
-.add-product
+.vendor-add-product
   display: flex
   flex-direction: column
   min-width: 375px
 
-.add-product__form
+.vendor-add-product__form
   display: flex
   flex-direction: column
   box-sizing: border-box
-  padding: 0 20px
+  pvendor-adding: 0 20px
 
-.add-product__form-item
+.vendor-add-product__form-item
   display: flex
   box-sizing: border-box
 
-.add-product__form-label
+.vendor-add-product__form-label
   display: flex
   justify-content: end
   align-items: center
-  padding-right: 10px
+  pvendor-adding-right: 10px
   font-size: 18px
   width: 26vw
 
-.add-product__form-select
+.vendor-add-product__form-select
   display: flex
   width: 60vw
   color: var(--holy-crow)
@@ -116,9 +116,9 @@ const categories = reactive([
   border-radius: 6px
   font-family: 'Sofia'
   font-size: 16px
-  padding: 10px
+  pvendor-adding: 10px
 
-.add-product__form-input
+.vendor-add-product__form-input
   display: flex
   width: 56vw
   color: var(--holy-crow)
@@ -126,9 +126,9 @@ const categories = reactive([
   border-radius: 6px
   font-family: 'Sofia'
   font-size: 16px
-  padding: 10px
+  pvendor-adding: 10px
 
-.add-product__button-save
+.vendor-add-product__button-save
   display: flex
   justify-content: center
   cursor: not-allowed
@@ -137,6 +137,6 @@ const categories = reactive([
   border: 1px solid var(--cloudy-today)
   border-radius: 6px
   font-size: 22px
-  padding: 10px
+  pvendor-adding: 10px
   margin-top: 40px
 </style>
