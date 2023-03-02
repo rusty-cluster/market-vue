@@ -1,54 +1,102 @@
 <template lang="pug">
 .retailer-orders
-  RetailerHeader(
-    :cartItemsQuantity='20'
-  )
-  RetailerOrder(
-    v-for='stubOrder in stubOrders.slice().reverse()'
-    :timestamp='stubOrder.timestamp'
-    :name='stubOrder.name'
-    :quantity='stubOrder.quantity'
-    :totalPrice='stubOrder.totalPrice'
-    :key='stubOrder.timestamp'
-  )
+  RetailerHeader
+  ul.retailer-orders__list
+    RetailerOrder(
+      v-for='order in stubOrders.slice().reverse()'
+      :id='order.id'
+      :timestamp='order.timestamp'
+      :cartItems='order.cartItems'
+      :key='order.timestamp'
+    )
   RetailerFooter
 </template>
 
 <script setup>
+import { reactive, ref } from 'vue'
+
 import RetailerHeader from '@/components/RetailerHeader.vue'
 import RetailerFooter from '@/components/RetailerFooter.vue'
 import RetailerOrder from '@/components/RetailerOrder.vue'
 
-const stubOrders = [
+const stubOrders = ref([
   {
-    timestamp: 1664369496595,
-    name: '92852402-0009',
-    quantity: 1,
-    totalPrice: 5000
+    id: 676373071000,
+    timestamp: 1676373071000,
+    cartItems: [
+      {
+        id: 1,
+        price: 450,
+        quantity: 1,
+      },
+      {
+        id: 4,
+        price: 340,
+        quantity: 1,
+      },
+    ],
   },
   {
-    timestamp: 1664369518373,
-    name: '92852402-0010',
-    quantity: 3,
-    totalPrice: 2500
+    id: 676383871000,
+    timestamp: 1676383871000,
+    cartItems: [
+      {
+        id: 81,
+        price: 410,
+        quantity: 2,
+      },
+    ],
   },
   {
-    timestamp: 1664369529220,
-    name: '92852402-0011',
-    quantity: 1,
-    totalPrice: 12500
-  }
-]
+    id: 676384051000,
+    timestamp: 1676384051000,
+    cartItems: [
+      {
+        id: 16,
+        price: 340,
+        quantity: 3,
+      },
+    ],
+  },
+  {
+    id: 676384054000,
+    timestamp: 1676384054000,
+    cartItems: [
+      {
+        id: 7,
+        price: 350,
+        quantity: 1,
+      },
+    ],
+  },
+  {
+    id: 676416454000,
+    timestamp: 1676416454000,
+    cartItems: [
+      {
+        id: 79,
+        price: 300,
+        quantity: 11,
+      },
+    ],
+  },
+])
 </script>
 
 <style>
 .retailer-orders
   display: grid
   grid-template-columns: 1fr min(100%, 800px) 1fr
+  grid-template-rows: auto 1fr auto
   align-content: start
-  height: 100vh
+  min-height: 100vh
 
 .retailer-orders > *
   grid-column: 2
-  max-height: 150px
+
+ul.retailer-orders__list
+  display: flex
+  flex-direction: column
+  margin: 0
+  padding: 2vh 2vh 0
 </style>

@@ -26,10 +26,10 @@ const productInfo = {
 
 <style>
 li.retailer-product-tile
+  display: flex
+  flex-direction: column
   margin: 0 0 2vh 0
   padding: 1vh
-  flex-direction: column
-  display: flex
   border: 1px solid var(--kamenozoki-grey)
   border-radius: 20px
   background: var(--faded-grey)

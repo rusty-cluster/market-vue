@@ -1,53 +1,80 @@
 <template lang="pug">
-.retailer-order
+li.retailer-order
   span.retailer-order__date {{ (new Date(props.timestamp)).toDateString() }}
-  span.retailer-order__name {{ props.name }}
-  span.retailer-order__quantity {{ props.quantity }} wares
-  span.retailer-order__total-price ${{ props.totalPrice }}
+  span.retailer-order__id {{ props.id }}
+  .retailer-order__totals
+    span.retailer-order__total-price ${{ cartTotalPrice }}
+    span.retailer-order__total-quantity  qty {{ cartTotalQuantity }}
+    img.retailer-order__icon-svg(src='@/assets/icons/shopping-cart-filled.svg')
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
+  id: { type: Number, default: 0 },
   timestamp: { type: Number, default: 0 },
-  name: { type: String, default: '' },
-  quantity: { type: Number, default: 0 },
-  totalPrice: { type: Number, default: 0 },
+  cartItems: { type: Array, default: () => [] },
+})
+
+const cartTotalPrice = computed(() => {
+  return props.cartItems.reduce((acc, currentCartItem) => {
+    return acc + currentCartItem['price'] * currentCartItem['quantity']
+  }, 0)
+})
+
+const cartTotalQuantity = computed(() => {
+  return props.cartItems.reduce((acc, currentCartItem) => {
+    return acc + currentCartItem['quantity']
+  }, 0)
 })
 </script>
 
 <style>
-.retailer-order
-  font-size: 28px
+li.retailer-order
+  font-size: 20px
   display: grid
   grid-template-areas:
     'date date'
-    'name name'
-    'quantity total-price'
+    'id totals'
   align-items: center
   justify-items: center
-  min-width: 90%
-  margin: 4px
-  padding: 4px
-  border-style: solid
-  border-width: thin
-  border-radius: 4px
+  min-height: 4vh
+  margin: 0 0 2vh 0
+  padding: 1vh
+  border-radius: 24px
+  background: var(--bleached-silk)
+  box-shadow: 0 4px 20px var(--kamenozoki-grey)
 
 span.retailer-order__date
   grid-area: date
+  margin: 0 0 2vh 0
 
-span.retailer-order__name
-  grid-area: name
-  color: #0022ee
+span.retailer-order__id
+  grid-area: id
+  color: var(--cloudy-today)
 
-span.retailer-order__quantity
-  grid-area: quantity
+.retailer-order__totals
+  grid-area: totals
+  display: flex
+  align-items: center
+  justify-content: center
+
+span.retailer-order__total-quantity
+  padding-right: 1vh
 
 span.retailer-order__total-price
-  grid-area: total-price
-  color: #118c4f
+  padding-right: 1vh
+
+img.retailer-order__icon-svg
+  height: 20px
+  width: 20px
 
 @media (min-width: 810px)
-  .retailer-order
+  li.retailer-order
     grid-template-areas:
-      'date name quantity total-price'
+      'date id totals'
+
+  span.retailer-order__date
+    margin: 0
 </style>
