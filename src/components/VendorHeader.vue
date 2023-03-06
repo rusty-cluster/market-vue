@@ -15,10 +15,10 @@
   align-items: center
   box-sizing: border-box
   background: var(--faded-grey)
-  padding: 0 20px
+  padding: 0 2vh
   position: sticky
   top: 0
-  height: 11vh
+  height: 10vh
 
 .vendor-header__icon-menu
   display: flex

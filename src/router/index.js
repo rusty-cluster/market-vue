@@ -5,9 +5,10 @@ const RetailerDashboard = () => import('@/views/RetailerDashboard.vue')
 const RetailerOrders = () => import('@/views/RetailerOrders.vue')
 const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
 const VendorDashboard = () => import('@/views/VendorDashboard.vue')
-const ProductCard = () => import('@/views/ProductCard.vue')
-const ProductList = () => import('@/views/ProductList.vue')
-const AddProduct = () => import('@/views/AddProduct.vue')
+const VendorProductCard = () => import('@/views/VendorProductCard.vue')
+const VendorProductList = () => import('@/views/VendorProductList.vue')
+const VendorAddProduct = () => import('@/views/VendorAddProduct.vue')
+const VendorOrders = () => import('@/views/VendorOrderList.vue')
 
 const routes = [
   {
@@ -37,18 +38,23 @@ const routes = [
   },
   {
     path: '/vendor/products/:slug',
-    name: 'ProductCard',
-    component: ProductCard
+    name: 'VendorProductCard',
+    component: VendorProductCard
   },
   {
     path: '/vendor/products',
-    name: 'ProductList',
-    component: ProductList
+    name: 'VendorProductList',
+    component: VendorProductList
   },
   {
     path: '/vendor/products/add',
-    name: 'AddProduct',
-    component: AddProduct
+    name: 'VendorAddProduct',
+    component: VendorAddProduct
+  },
+  {
+    path: '/vendor/orders',
+    name: 'VendorOrders',
+    component: VendorOrders
   },
 ]
 

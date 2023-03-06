@@ -1,9 +1,9 @@
 <template lang='pug'>
-ul.product-list
+.vendor-product-list
   VendorHeader
 
-  h1.product-list__title Product List
-  ProductTile(
+  h1.vendor-product-list__title Product List
+  VendorProductTile(
     v-for='product in products'
     :product='product'
     :key='product.name')
@@ -12,9 +12,9 @@ ul.product-list
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import VendorHeader from '@/components/VendorHeader.vue'
-import ProductTile from '@/components/ProductTile.vue'
+import VendorProductTile from '@/components/VendorProductTile.vue'
 import VendorFooter from '@/components/VendorFooter.vue'
 
 const products = ref([
@@ -87,7 +87,7 @@ const products = ref([
 </script>
 
 <style>
-.product-list
+.vendor-product-list
   margin: 0
   padding: 0 2vh
   display: flex
