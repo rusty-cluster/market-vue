@@ -14,7 +14,7 @@
       )
 
     p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='select') Category:
+      label.vendor-add-product__form-label(for='select') Category
       select.vendor-add-product__form-select(v-model='product.category_id' name='select' required)
         option(v-for='category in categories') {{ category.text }}
 
@@ -55,7 +55,10 @@
       label.vendor-add-product__form-label(for='updated_at')
       input.vendor-add-product__form-input(readonly='true' :value='product.updated_at' name='updated_at')
 
-    .vendor-add-product__button-save Save
+    router-link.vendor-add-product__save(to='/vendor/products/pokemon-slowpoke')
+      .vendor-add-product__save-button Save
+      .vendor-add-product__save-icon
+        img.vendor-add-product__save-icon-svg(src='@/assets/icons/right-arrow.svg')
 
   VendorFooter
 </template>
@@ -94,7 +97,7 @@ const categories = reactive([
   display: flex
   flex-direction: column
   box-sizing: border-box
-  pvendor-adding: 0 20px
+  padding: 0 2vh
 
 .vendor-add-product__form-item
   display: flex
@@ -104,39 +107,55 @@ const categories = reactive([
   display: flex
   justify-content: end
   align-items: center
-  pvendor-adding-right: 10px
+  padding-right: 10px
   font-size: 18px
   width: 26vw
 
 .vendor-add-product__form-select
   display: flex
-  width: 60vw
   color: var(--holy-crow)
-  border: 1px solid var(--cloudy-today)
+  background: var(--lynx-white)
+  border: none
   border-radius: 6px
-  font-family: 'Sofia'
   font-size: 16px
-  pvendor-adding: 10px
+  padding: 10px
 
 .vendor-add-product__form-input
   display: flex
   width: 56vw
   color: var(--holy-crow)
-  border: 1px solid var(--cloudy-today)
+  background: var(--lynx-white)
+  border: none
   border-radius: 6px
   font-family: 'Sofia'
   font-size: 16px
-  pvendor-adding: 10px
+  padding: 10px
 
-.vendor-add-product__button-save
+.vendor-add-product__save
+  width: 60vw
   display: flex
-  justify-content: center
-  cursor: not-allowed
-  color: var(--nero)
+  justify-content: space-between
+  align-items: center
+  padding: 10px
+  margin: 20px auto
+  border-radius: 10px
+  cursor: pointer
   background: var(--lynx-white)
-  border: 1px solid var(--cloudy-today)
-  border-radius: 6px
-  font-size: 22px
-  pvendor-adding: 10px
-  margin-top: 40px
+
+.vendor-add-product__save-button
+  padding-left: 10px
+  color: var(--nero)
+
+.vendor-add-product__save-icon
+  display: flex
+  align-items: center
+  justify-content: center
+  background: var(--faded-grey)
+  border-radius: 100%
+  height: 30px
+  width: 30px
+
+.vendor-add-product__save-icon-svg
+  height: 14px
+  width: 14px
 </style>

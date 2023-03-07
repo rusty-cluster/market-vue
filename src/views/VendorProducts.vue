@@ -83,7 +83,6 @@ const products = ref([
     cart: 0,
   },
 ])
-
 </script>
 
 <style>
