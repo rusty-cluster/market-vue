@@ -1,8 +1,8 @@
 <template lang='pug'>
-.vendor-product-list
+.vendor-products
   VendorHeader
 
-  h1.vendor-product-list__title Product List
+  h1.vendor-products__title Product List
   VendorProductTile(
     v-for='product in products'
     :product='product'
@@ -87,7 +87,7 @@ const products = ref([
 </script>
 
 <style>
-.vendor-product-list
+.vendor-products
   margin: 0
   padding: 0 2vh
   display: flex
