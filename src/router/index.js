@@ -8,7 +8,7 @@ const VendorDashboard = () => import('@/views/VendorDashboard.vue')
 const VendorProductCard = () => import('@/views/VendorProductCard.vue')
 const VendorProductList = () => import('@/views/VendorProductList.vue')
 const VendorAddProduct = () => import('@/views/VendorAddProduct.vue')
-const VendorOrders = () => import('@/views/VendorOrderList.vue')
+const VendorOrders = () => import('@/views/VendorOrders.vue')
 
 const routes = [
   {
