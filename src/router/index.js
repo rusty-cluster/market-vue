@@ -6,7 +6,7 @@ const RetailerOrders = () => import('@/views/RetailerOrders.vue')
 const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
 const VendorDashboard = () => import('@/views/VendorDashboard.vue')
 const VendorProductCard = () => import('@/views/VendorProductCard.vue')
-const VendorProductList = () => import('@/views/VendorProductList.vue')
+const VendorProducts = () => import('@/views/VendorProducts.vue')
 const VendorAddProduct = () => import('@/views/VendorAddProduct.vue')
 const VendorOrders = () => import('@/views/VendorOrders.vue')
 
@@ -43,8 +43,8 @@ const routes = [
   },
   {
     path: '/vendor/products',
-    name: 'VendorProductList',
-    component: VendorProductList
+    name: 'VendorProducts',
+    component: VendorProducts
   },
   {
     path: '/vendor/products/add',
