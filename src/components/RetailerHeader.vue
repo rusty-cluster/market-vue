@@ -1,11 +1,11 @@
 <template lang="pug">
 .retailer-header
-  .retailer-header__menu-button
+  router-link.retailer-header__menu-button(:to="{ name: 'RetailerDashboard' }")
     img.retailer-header__icon-svg(src='@/assets/icons/menu.svg')
   span.retailer-header__logo mrkt
   span.retailer-header__cart-total-price ${{ cartTotalPrice }}
   span.retailer-header__cart-total-quantity  qty {{ cartTotalQuantity }}
-  .retailer-header__go-to-cart-button
+  router-link.retailer-header__go-to-cart-button(:to="{ name: 'RetailerCart' }")
     img.retailer-header__icon-svg(src='@/assets/icons/shopping-cart.svg')
 </template>
 
