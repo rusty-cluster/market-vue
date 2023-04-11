@@ -9,6 +9,8 @@ const VendorProductCard = () => import('@/views/VendorProductCard.vue')
 const VendorProducts = () => import('@/views/VendorProducts.vue')
 const VendorAddProduct = () => import('@/views/VendorAddProduct.vue')
 const VendorOrders = () => import('@/views/VendorOrders.vue')
+const VendorCategories = () => import('@/views/VendorCategories.vue')
+const VendorAddCategory = () => import('@/views/VendorAddCategory.vue')
 
 const routes = [
   {
@@ -55,6 +57,16 @@ const routes = [
     path: '/vendor/orders',
     name: 'VendorOrders',
     component: VendorOrders
+  },
+  {
+    path: '/vendor/categories',
+    name: 'VendorCategories',
+    component: VendorCategories
+  },
+  {
+    path: '/vendor/categories/add',
+    name: 'VendorAddCategory',
+    component: VendorAddCategory
   },
 ]
 
