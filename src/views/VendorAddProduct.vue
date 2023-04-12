@@ -1,72 +1,65 @@
 <template lang='pug'>
-.vendor-add-product
-  VendorHeader
+VendorHeader
+form.vendor-add-product
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='id') ID
+    input.vendor-add-product__input(
+      v-model='product.id'
+      type='text'
+      placeholder='id'
+      name='id'
+      required
+    )
 
-  form.vendor-add-product__form
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='id') ID
-      input.vendor-add-product__form-input(
-        v-model='product.id'
-        type='text'
-        placeholder='id'
-        name='id'
-        required
-      )
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='select') Category
+    select.vendor-add-product__select(v-model='product.category_id' name='select' required)
+      option(v-for='category in categories') {{ category.text }}
 
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='select') Category
-      select.vendor-add-product__form-select(v-model='product.category_id' name='select' required)
-        option(v-for='category in categories') {{ category.text }}
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='name') Name
+    input.vendor-add-product__input(
+      v-model='product.name'
+      type='text'
+      placeholder='name'
+      name='name'
+      required
+    )
 
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='name') Name
-      input.vendor-add-product__form-input(
-        v-model='product.name'
-        type='text'
-        placeholder='name'
-        name='name'
-        required
-      )
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='price') Price
+    input.vendor-add-product__input(
+      v-model.number='product.price'
+      type='number'
+      name='price'
+      required
+    )
 
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='price') Price
-      input.vendor-add-product__form-input(
-        v-model.number='product.price'
-        type='number'
-        name='price'
-        required
-      )
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='description') Description
+    textarea.vendor-add-product__input(
+      v-model='product.description'
+      type='text'
+      placeholder='description'
+      name='description'
+      required
+    )
 
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='description') Description
-      textarea.vendor-add-product__form-input(
-        v-model='product.description'
-        type='text'
-        placeholder='description'
-        name='description'
-        required
-      )
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='inserted_at')
+    input.vendor-add-product__input(readonly='true' :value='product.inserted_at' name='inserted_at')
 
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='inserted_at')
-      input.vendor-add-product__form-input(readonly='true' :value='product.inserted_at' name='inserted_at')
+  p.vendor-add-product__item
+    label.vendor-add-product__label(for='updated_at')
+    input.vendor-add-product__input(readonly='true' :value='product.updated_at' name='updated_at')
 
-    p.vendor-add-product__form-item
-      label.vendor-add-product__form-label(for='updated_at')
-      input.vendor-add-product__form-input(readonly='true' :value='product.updated_at' name='updated_at')
-
-    router-link.vendor-add-product__save(to='/vendor/products/pokemon-slowpoke')
-      .vendor-add-product__save-button Save
-      .vendor-add-product__save-icon
-        img.vendor-add-product__save-icon-svg(src='@/assets/icons/right-arrow.svg')
-
-  VendorFooter
+  router-link.vendor-add-product__submit(:to="{ name: 'VendorProductCard', params: { slug: 'pokemon-slowpoke' }}")
+    .vendor-add-product__submit-title Save
 </template>
 
 <script setup>
 import { ref, reactive, computed } from 'vue'
 import VendorHeader from '@/components/VendorHeader.vue'
-import VendorFooter from '@/components/VendorFooter.vue'
 
 const name = ref('')
 
@@ -91,19 +84,14 @@ const categories = reactive([
 .vendor-add-product
   display: flex
   flex-direction: column
-  min-width: 375px
-
-.vendor-add-product__form
-  display: flex
-  flex-direction: column
   box-sizing: border-box
   padding: 0 2vh
 
-.vendor-add-product__form-item
+.vendor-add-product__item
   display: flex
   box-sizing: border-box
 
-.vendor-add-product__form-label
+.vendor-add-product__label
   display: flex
   justify-content: end
   align-items: center
@@ -111,7 +99,7 @@ const categories = reactive([
   font-size: 18px
   width: 26vw
 
-.vendor-add-product__form-select
+.vendor-add-product__select
   display: flex
   color: var(--holy-crow)
   background: var(--lynx-white)
@@ -120,7 +108,7 @@ const categories = reactive([
   font-size: 16px
   padding: 10px
 
-.vendor-add-product__form-input
+.vendor-add-product__input
   display: flex
   width: 56vw
   color: var(--holy-crow)
@@ -131,31 +119,18 @@ const categories = reactive([
   font-size: 16px
   padding: 10px
 
-.vendor-add-product__save
-  width: 60vw
+.vendor-add-product__submit
   display: flex
   justify-content: space-between
   align-items: center
-  padding: 10px
+  padding: 10px 80px
   margin: 20px auto
   border-radius: 10px
   cursor: pointer
-  background: var(--lynx-white)
+  background: var(--limone)
 
-.vendor-add-product__save-button
-  padding-left: 10px
-  color: var(--nero)
-
-.vendor-add-product__save-icon
+.vendor-add-product__submit-title
+  color: var(--lynx-white)
   display: flex
-  align-items: center
   justify-content: center
-  background: var(--faded-grey)
-  border-radius: 100%
-  height: 30px
-  width: 30px
-
-.vendor-add-product__save-icon-svg
-  height: 14px
-  width: 14px
 </style>

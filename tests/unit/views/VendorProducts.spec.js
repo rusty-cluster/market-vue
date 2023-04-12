@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
 import VendorProducts from '@/views/VendorProducts.vue'
-import VendorProductTile from '@/components/VendorProductTile.vue'
+import VendorProduct from '@/components/VendorProduct.vue'
 import { expect, test } from 'vitest'
 
-test('Products renders several child ProductTile', () => {
+test('Renders several child item', () => {
   const products = mount(VendorProducts)
 
-  expect(products.findAllComponents(VendorProductTile).length).toBe(9)
+  expect(products.findAllComponents(VendorProduct).length).toBe(9)
 })

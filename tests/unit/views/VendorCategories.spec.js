@@ -3,7 +3,7 @@ import VendorCategories from '@/views/VendorCategories.vue'
 import VendorCategory from '@/components/VendorCategory.vue'
 import { expect, test } from 'vitest'
 
-test('List renders several child tile', () => {
+test('List renders several child items', () => {
   const vendorCategories = mount(VendorCategories)
 
   expect(vendorCategories.findAllComponents(VendorCategory).length).toBe(4)
