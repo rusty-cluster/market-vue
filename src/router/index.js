@@ -2,8 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const RetailerCart = () => import('@/views/RetailerCart.vue')
 const RetailerDashboard = () => import('@/views/RetailerDashboard.vue')
+const RetailerLogin = () => import('@/views/RetailerLogin.vue')
 const RetailerOrders = () => import('@/views/RetailerOrders.vue')
 const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
+const RetailerRegistration = () => import('@/views/RetailerRegistration.vue')
 const VendorDashboard = () => import('@/views/VendorDashboard.vue')
 const VendorProductCard = () => import('@/views/VendorProductCard.vue')
 const VendorProducts = () => import('@/views/VendorProducts.vue')
@@ -24,6 +26,11 @@ const routes = [
     component: RetailerDashboard
   },
   {
+    path: '/retailer/login',
+    name: 'RetailerLogin',
+    component: RetailerLogin
+  },
+  {
     path: '/retailer/orders',
     name: 'RetailerOrders',
     component: RetailerOrders
@@ -32,6 +39,11 @@ const routes = [
     path: '/retailer/product-search',
     name: 'RetailerProductSearch',
     component: RetailerProductSearch
+  },
+  {
+    path: '/retailer/registration',
+    name: 'RetailerRegistration',
+    component: RetailerRegistration
   },
   {
     path: '/vendor',
