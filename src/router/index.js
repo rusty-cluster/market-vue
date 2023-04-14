@@ -7,6 +7,8 @@ const RetailerOrders = () => import('@/views/RetailerOrders.vue')
 const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
 const RetailerRegistration = () => import('@/views/RetailerRegistration.vue')
 const VendorDashboard = () => import('@/views/VendorDashboard.vue')
+const VendorRegistration = () => import('@/views/VendorRegistration.vue')
+const VendorLogin = () => import('@/views/VendorLogin.vue')
 const VendorProductCard = () => import('@/views/VendorProductCard.vue')
 const VendorProducts = () => import('@/views/VendorProducts.vue')
 const VendorAddProduct = () => import('@/views/VendorAddProduct.vue')
@@ -49,6 +51,16 @@ const routes = [
     path: '/vendor',
     name: 'VendorDashboard',
     component: VendorDashboard
+  },
+  {
+    path: '/vendor/registration',
+    name: 'VendorRegistration',
+    component: VendorRegistration
+  },
+  {
+    path: '/vendor/login',
+    name: 'VendorLogin',
+    component: VendorLogin
   },
   {
     path: '/vendor/products/:slug',
