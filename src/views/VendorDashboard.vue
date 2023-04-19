@@ -3,15 +3,15 @@ VendorHeader
 .vendor-dashboard
   .vendor-dashboard__nav
     router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorOrders' }")
-        .vendor-dashboard__nav-title Orders
-        .vendor-dashboard__nav-icon
-          img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
+      .vendor-dashboard__nav-title Orders
+      .vendor-dashboard__nav-icon
+        img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
 
   .vendor-dashboard__nav
     router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorProducts' }")
-        .vendor-dashboard__nav-title Products
-        .vendor-dashboard__nav-icon
-          img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
+      .vendor-dashboard__nav-title Products
+      .vendor-dashboard__nav-icon
+        img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
 
   .vendor-dashboard__nav
     router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorProductCard', params: { slug: 'pokemon-slowpoke' }}")
@@ -21,17 +21,21 @@ VendorHeader
 
   .vendor-dashboard__nav
     router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorAddProduct' }")
-        .vendor-dashboard__nav-title Add product
-        .vendor-dashboard__nav-icon
-          img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
+      .vendor-dashboard__nav-title Add product
+      .vendor-dashboard__nav-icon
+        img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
 
   .vendor-dashboard__nav
-    router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorOrders' }")
-        .vendor-dashboard__nav-title Add category
-        .vendor-dashboard__nav-icon
-          img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
+    router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorCategories' }")
+      .vendor-dashboard__nav-title Category
+      .vendor-dashboard__nav-icon
+        img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
 
-
+  .vendor-dashboard__nav
+    router-link.vendor-dashboard__nav-link(:to="{ name: 'VendorAddCategory' }")
+      .vendor-dashboard__nav-title Add category
+      .vendor-dashboard__nav-icon
+        img.vendor-dashboard__nav-icon-svg(src='@/assets/icons/right-arrow.svg')
 VendorFooter
 </template>
 

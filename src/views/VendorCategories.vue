@@ -14,7 +14,6 @@ VendorHeader
       .vendor-categories__add-name Add Category
       .vendor-categories__add-icon
         img.vendor-categories__add-icon-svg(src='@/assets/icons/plus.svg')
-
 VendorFooter
 </template>
 

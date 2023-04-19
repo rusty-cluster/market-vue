@@ -1,16 +1,16 @@
 <template lang="pug">
-.vendor-product-tile
-  .vendor-product-tile__images
-    img.vendor-product-tile__image(:src='props.product.image')
+.vendor-product
+  .vendor-product__images
+    img.vendor-product__image(:src='props.product.image')
 
-  .vendor-product-tile__vendor-product-info
-    .vendor-product-tile__name {{ props.product.name }}
-    .vendor-product-tile__price ${{ props.product.price }}
-    .vendor-product-tile__in-stock
-      span.vendor-product-tile__in-stock In Stock
-    .vendor-product-tile__description {{ props.product.description }}
+  .vendor-product__vendor-product-info
+    .vendor-product__name {{ props.product.name }}
+    .vendor-product__price ${{ props.product.price }}
+    .vendor-product__in-stock
+      span.vendor-product__in-stock In Stock
+    .vendor-product__description {{ props.product.description }}
 
-    .vendor-product-tile__add-to-cart Add to Cart
+    .vendor-product__add-to-cart Edit
 </template>
 
 <script setup>
@@ -20,7 +20,7 @@ const props = defineProps({
 </script>
 
 <style>
-.vendor-product-tile
+.vendor-product
   margin: 0 0 2vh 0
   padding: 1vh
   flex-direction: column
@@ -29,15 +29,15 @@ const props = defineProps({
   border-radius: 20px
   background: var(--faded-grey)
 
-.vendor-product-tile__images
+.vendor-product__images
   height: 100%
   margin: 2vh
 
-.vendor-product-tile__image
+.vendor-product__image
   max-width: 100%
   height: auto
 
-.vendor-product-tile__vendor-product-info
+.vendor-product__vendor-product-info
   display: flex
   border-radius: 24px
   flex-direction: column
@@ -45,20 +45,20 @@ const props = defineProps({
   background: var(--bleached-silk)
   box-shadow: 0 4px 20px var(--kamenozoki-grey)
 
-.vendor-product-tile__name
+.vendor-product__name
   font-size: 20px
 
-.vendor-product-tile__price
+.vendor-product__price
   font-size: 40px
 
-.vendor-product-tile__in-stock
+.vendor-product__in-stock
   font-size: 14px
   padding-bottom: 30px
 
-.vendor-product-tile__description
+.vendor-product__description
   color: var(--cloudy-today)
 
-.vendor-product-tile__add-to-cart
+.vendor-product__add-to-cart
   font: inherit
   color: inherit
   background-color: transparent

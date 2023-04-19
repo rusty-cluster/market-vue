@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import VendorCategory from '@/components/VendorCategory.vue'
 import { expect, test } from 'vitest'
 
-test('VendorCategory renders id', () => {
+test('Renders id', () => {
   const wrapper = mount(
     VendorCategory, { props: { category: { id: '0013' } } }
   )
@@ -11,7 +11,7 @@ test('VendorCategory renders id', () => {
   expect(id.text()).toContain('0013')
 })
 
-test('VendorCategory renders name', () => {
+test('Renders name', () => {
   const wrapper = mount(
     VendorCategory, { props: { category: { name: 'Bag' } } }
   )

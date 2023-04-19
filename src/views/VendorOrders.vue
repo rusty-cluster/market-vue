@@ -3,7 +3,7 @@ VendorHeader
 .vendor-orders
   h1.vendor-orders__title Order list
 
-  VendorOrderTile(
+  VendorOrder(
     v-for='order in orders'
     :order='order'
     :key='orders.id')
@@ -14,7 +14,7 @@ VendorFooter
 <script setup>
 import { ref } from 'vue'
 import VendorHeader from '@/components/VendorHeader.vue'
-import VendorOrderTile from '@/components/VendorOrderTile.vue'
+import VendorOrder from '@/components/VendorOrder.vue'
 import VendorFooter from '@/components/VendorFooter.vue'
 
 const orders = ref([

@@ -1,6 +1,6 @@
 <template lang='pug'>
+VendorHeader
 .vendor-product-card
-  VendorHeader
 
   .vendor-product-card__category {{ product.category }}
   h1.vendor-product-card__name {{ product.name }}
@@ -21,12 +21,12 @@
   .vendor-product-card__price ${{  product.price  }}
   p.vendor-product-card__description {{  product.description  }}
 
-  router-link.vendor-product-card__edit(to='/vendor/products/add')
-    .vendor-product-card__edit-button Edit
+  router-link.vendor-product-card__edit(:to="{ name: 'VendorAddProduct' }")
+    .vendor-product-card__edit-text Edit
     .vendor-product-card__edit-icon
       img.vendor-product-card__edit-icon-svg(src='@/assets/icons/right-arrow.svg')
 
-  VendorFooter
+VendorFooter
 </template>
 
 <script setup>
@@ -128,7 +128,7 @@ Object.assign(product, {
   cursor: pointer
   background: var(--lynx-white)
 
-.vendor-product-card__edit-button
+.vendor-product-card__edit-text
   padding-left: 10px
   color: var(--nero)
 

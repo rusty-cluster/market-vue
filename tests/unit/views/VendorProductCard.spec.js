@@ -27,7 +27,7 @@ test('Renders image of product', () => {
   expect(image.html()).toContain('assets/images/pokemon-slowpoke.png')
 })
 
-test('Does not render the absence of a product', () => {
+test('Does not render absence of product', () => {
   const productCard = mount(VendorProductCard, {
     global: {
       mocks: {
@@ -40,7 +40,7 @@ test('Does not render the absence of a product', () => {
   expect(outOfStock.exists()).toBe(false)
 })
 
-test('Renders the presence of a product', () => {
+test('Renders presence of product', () => {
   const productCard = mount(VendorProductCard, {
     global: {
       mocks: {

@@ -1,20 +1,20 @@
 <template lang='pug'>
+VendorHeader
 .vendor-products
-  VendorHeader
 
   h1.vendor-products__title Product List
-  VendorProductTile(
+  VendorProduct(
     v-for='product in products'
     :product='product'
     :key='product.name')
 
-  VendorFooter
+VendorFooter
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import VendorHeader from '@/components/VendorHeader.vue'
-import VendorProductTile from '@/components/VendorProductTile.vue'
+import VendorProduct from '@/components/VendorProduct.vue'
 import VendorFooter from '@/components/VendorFooter.vue'
 
 const products = ref([

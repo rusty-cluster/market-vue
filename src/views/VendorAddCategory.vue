@@ -22,16 +22,14 @@ VendorHeader
         name='name'
         required
       )
-    router-link.vendor-add-category__save-button(to='/vendor/categories')
-      .vendor-add-category__save Save
-
-VendorFooter
+    .vendor-add-category__submit-button
+      router-link.vendor-add-category__submit-link(:to="{ name: 'VendorCategories' }")
+        .vendor-add-category__submit-title Save
 </template>
 
 <script setup>
 import { reactive } from 'vue'
 import VendorHeader from '@/components/VendorHeader.vue'
-import VendorFooter from '@/components/VendorFooter.vue'
 
 const category = reactive({
   id: null,
@@ -50,6 +48,12 @@ const category = reactive({
   display: flex
   flex-direction: column
   box-sizing: border-box
+
+.vendor-add-category__title
+  display: flex
+  justify-content: center
+  color: var(--limone)
+  margin: 10px
 
 .vendor-add-category__form-item
   display: flex
@@ -71,16 +75,24 @@ const category = reactive({
   font-size: 16px
   padding: 10px
 
-.vendor-add-category__save-button
-  width: 24vw
+.vendor-add-category__submit-button
+  display: flex
+  justify-content: space-between
+  align-items: center
+  flex-direction: column
+  margin: 20px auto
+
+.vendor-add-category__submit-link
+  display: flex
+  padding: 10px
+  border-radius: 10px
+  border: 2px solid var(--limone)
+  cursor: pointer
+  background: var(--limone)
+  padding: 10px 80px
+
+.vendor-add-category__submit-title
+  color: var(--lynx-white)
   display: flex
   justify-content: center
-  padding: 10px
-  margin: 20px auto
-  border-radius: 10px
-  cursor: pointer
-  background: var(--lynx-white)
-
-.vendor-add-category__save
-  color: var(--nero)
 </style>
