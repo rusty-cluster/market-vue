@@ -1,6 +1,7 @@
 <template lang="pug">
 .retailer-cart
   RetailerHeader(:cartItems='stubCartItems')
+
   ul.retailer-cart__list
     RetailerCartItem(
       v-for='cartItem in stubCartItems'
@@ -9,15 +10,16 @@
       :quantity='cartItem.quantity'
       :key='productNameById(cartItem.id, stubProducts)'
     )
+  
   RetailerFooter
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
 
-import RetailerHeader from '@/components/RetailerHeader.vue'
-import RetailerFooter from '@/components/RetailerFooter.vue'
-import RetailerCartItem from '@/components/RetailerCartItem.vue'
+import RetailerCartItem from '@/components/retailer/RetailerCartItem.vue'
+import RetailerFooter from '@/components/retailer/RetailerFooter.vue'
+import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 
 const productNameById = (id, products) => {
   const product = products.find(

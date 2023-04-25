@@ -1,8 +1,9 @@
 import { mount } from '@vue/test-utils'
-import RetailerProductSearch from '@/views/RetailerProductSearch.vue'
-import RetailerHeader from '@/components/RetailerHeader.vue'
-import RetailerProductTile from '@/components/RetailerProductTile.vue'
 import { expect, test } from 'vitest'
+
+import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
+import RetailerProductTile from '@/components/retailer/RetailerProductTile.vue'
+import RetailerProductSearch from '@/views/retailer/RetailerProductSearch.vue'
 
 test('correctly renders retailer-product-search__list', () => {
   const wrapper = mount(RetailerProductSearch)

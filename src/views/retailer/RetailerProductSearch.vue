@@ -1,6 +1,7 @@
 <template lang="pug">
 .retailer-product-search
   RetailerHeader(:cartItems='stubCartItems')
+
   .retailer-product-search__search-field
     .retailer-product-search__search-button
       img.retailer-product-search__icon-svg(src='@/assets/icons/magnifying-glass.svg')
@@ -10,6 +11,7 @@
       placeholder='Search for products...'
       autofocus
     )
+
   ul.retailer-product-search__list
     RetailerProductTile(
       v-for='product in stubProducts'
@@ -17,15 +19,16 @@
       :key='product.name'
       @add-or-increase-quantity='addOrIncreaseQuantity'
     )
+
   RetailerFooter
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
 
-import RetailerFooter from '@/components/RetailerFooter.vue'
-import RetailerHeader from '@/components/RetailerHeader.vue'
-import RetailerProductTile from '@/components/RetailerProductTile.vue'
+import RetailerFooter from '@/components/retailer/RetailerFooter.vue'
+import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
+import RetailerProductTile from '@/components/retailer/RetailerProductTile.vue'
 
 const stubCartItems = ref([])
 

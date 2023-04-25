@@ -38,7 +38,7 @@ RetailerHeader
 <script setup>
 import { reactive } from 'vue'
 
-import RetailerHeader from '@/components/RetailerHeader.vue'
+import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 
 const registration = reactive({
   mail: null,

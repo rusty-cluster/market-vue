@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
-import RetailerCartItem from '@/components/RetailerCartItem.vue'
 import { expect, test } from 'vitest'
+
+import RetailerCartItem from '@/components/retailer/RetailerCartItem.vue'
 
 test('render quantity and price', () => {
   const wrapper = mount(

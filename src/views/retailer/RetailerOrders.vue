@@ -1,6 +1,7 @@
 <template lang="pug">
 .retailer-orders
   RetailerHeader
+
   ul.retailer-orders__list
     RetailerOrder(
       v-for='order in stubOrders.slice().reverse()'
@@ -9,15 +10,16 @@
       :cartItems='order.cartItems'
       :key='order.timestamp'
     )
+
   RetailerFooter
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
 
-import RetailerHeader from '@/components/RetailerHeader.vue'
-import RetailerFooter from '@/components/RetailerFooter.vue'
-import RetailerOrder from '@/components/RetailerOrder.vue'
+import RetailerFooter from '@/components/retailer/RetailerFooter.vue'
+import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
+import RetailerOrder from '@/components/retailer/RetailerOrder.vue'
 
 const stubOrders = ref([
   {
