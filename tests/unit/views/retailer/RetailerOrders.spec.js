@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils'
-import RetailerOrders from '@/views/RetailerOrders.vue'
-import RetailerOrder from '@/components/RetailerOrder.vue'
 import { expect, test } from 'vitest'
+
+import RetailerOrder from '@/components/retailer/RetailerOrder.vue'
+import RetailerOrders from '@/views/retailer/RetailerOrders.vue'
 
 test('correctly renders retailer-orders__list', () => {
   const wrapper = mount(RetailerOrders)

@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const RetailerCart = () => import('@/views/RetailerCart.vue')
-const RetailerDashboard = () => import('@/views/RetailerDashboard.vue')
-const RetailerLogin = () => import('@/views/RetailerLogin.vue')
-const RetailerOrders = () => import('@/views/RetailerOrders.vue')
-const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
-const RetailerRegistration = () => import('@/views/RetailerRegistration.vue')
+const RetailerCart = () => import('@/views/retailer/RetailerCart.vue')
+const RetailerDashboard = () => import('@/views/retailer/RetailerDashboard.vue')
+const RetailerLogin = () => import('@/views/retailer/RetailerLogin.vue')
+const RetailerOrders = () => import('@/views/retailer/RetailerOrders.vue')
+const RetailerProductSearch = () => import('@/views/retailer/RetailerProductSearch.vue')
+const RetailerRegistration = () => import('@/views/retailer/RetailerRegistration.vue')
 const VendorDashboard = () => import('@/views/VendorDashboard.vue')
 const VendorRegistration = () => import('@/views/VendorRegistration.vue')
 const VendorLogin = () => import('@/views/VendorLogin.vue')

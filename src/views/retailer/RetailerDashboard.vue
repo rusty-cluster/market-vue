@@ -20,8 +20,8 @@ RetailerFooter
 </template>
 
 <script setup>
-import RetailerHeader from '@/components/RetailerHeader.vue'
-import RetailerFooter from '@/components/RetailerFooter.vue'
+import RetailerFooter from '@/components/retailer/RetailerFooter.vue'
+import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 </script>
 
 <style>
