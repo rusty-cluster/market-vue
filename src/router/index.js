@@ -1,20 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const RetailerCart = () => import('@/views/RetailerCart.vue')
-const RetailerDashboard = () => import('@/views/RetailerDashboard.vue')
-const RetailerLogin = () => import('@/views/RetailerLogin.vue')
-const RetailerOrders = () => import('@/views/RetailerOrders.vue')
-const RetailerProductSearch = () => import('@/views/RetailerProductSearch.vue')
-const RetailerRegistration = () => import('@/views/RetailerRegistration.vue')
-const VendorDashboard = () => import('@/views/VendorDashboard.vue')
-const VendorRegistration = () => import('@/views/VendorRegistration.vue')
-const VendorLogin = () => import('@/views/VendorLogin.vue')
-const VendorProductCard = () => import('@/views/VendorProductCard.vue')
-const VendorProducts = () => import('@/views/VendorProducts.vue')
-const VendorAddProduct = () => import('@/views/VendorAddProduct.vue')
-const VendorOrders = () => import('@/views/VendorOrders.vue')
-const VendorCategories = () => import('@/views/VendorCategories.vue')
-const VendorAddCategory = () => import('@/views/VendorAddCategory.vue')
+const RetailerCart = () => import('@/views/retailer/RetailerCart.vue')
+const RetailerDashboard = () => import('@/views/retailer/RetailerDashboard.vue')
+const RetailerLogin = () => import('@/views/retailer/RetailerLogin.vue')
+const RetailerOrders = () => import('@/views/retailer/RetailerOrders.vue')
+const RetailerProductSearch = () => import('@/views/retailer/RetailerProductSearch.vue')
+const RetailerRegistration = () => import('@/views/retailer/RetailerRegistration.vue')
+const VendorDashboard = () => import('@/views/vendor/VendorDashboard.vue')
+const VendorRegistration = () => import('@/views/vendor/VendorRegistration.vue')
+const VendorLogin = () => import('@/views/vendor/VendorLogin.vue')
+const VendorProductCard = () => import('@/views/vendor/VendorProductCard.vue')
+const VendorProducts = () => import('@/views/vendor/VendorProducts.vue')
+const VendorProductAdd = () => import('@/views/vendor/VendorProductAdd.vue')
+const VendorOrders = () => import('@/views/vendor/VendorOrders.vue')
+const VendorCategories = () => import('@/views/vendor/VendorCategories.vue')
+const VendorCategoryAdd = () => import('@/views/vendor/VendorCategoryAdd.vue')
 
 const routes = [
   {
@@ -74,8 +74,8 @@ const routes = [
   },
   {
     path: '/vendor/products/add',
-    name: 'VendorAddProduct',
-    component: VendorAddProduct
+    name: 'VendorProductAdd',
+    component: VendorProductAdd
   },
   {
     path: '/vendor/orders',
@@ -89,8 +89,8 @@ const routes = [
   },
   {
     path: '/vendor/categories/add',
-    name: 'VendorAddCategory',
-    component: VendorAddCategory
+    name: 'VendorCategoryAdd',
+    component: VendorCategoryAdd
   },
 ]
 
