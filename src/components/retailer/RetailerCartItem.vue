@@ -7,6 +7,7 @@ li.retailer-cart-item
 
 <script setup>
 const props = defineProps({
+  id: { type: Number, default: 0 },
   name: { type: String, default: '' },
   quantity: { type: Number, default: 0 },
   price: { type: Number, default: 0 },
