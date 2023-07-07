@@ -21,18 +21,16 @@ VendorHeader
   .vendor-product-card__price ${{  product.price  }}
   p.vendor-product-card__description {{  product.description  }}
 
-  router-link.vendor-product-card__edit(:to="{ name: 'VendorAddProduct' }")
+  router-link.vendor-product-card__edit(:to="{ name: 'VendorProductAdd' }")
     .vendor-product-card__edit-text Edit
     .vendor-product-card__edit-icon
       img.vendor-product-card__edit-icon-svg(src='@/assets/icons/right-arrow.svg')
-
-VendorFooter
 </template>
 
 <script setup>
 import { reactive, ref } from 'vue'
-import VendorHeader from '@/components/VendorHeader.vue'
-import VendorFooter from '@/components/VendorFooter.vue'
+import VendorHeader from '@/components/vendor/VendorHeader.vue'
+import VendorProductCartItem from '@/components/vendor/VendorProductCartItem.vue'
 
 const product = reactive({
   name: null,
@@ -49,13 +47,13 @@ function updateImage(imageURL) {
 Object.assign(product, {
   category: 'POKEMON',
   name: 'Slowpoke',
-  image: new URL('../assets/images/pokemon-slowpoke.png', import.meta.url).href,
+  image: new URL('/src/assets/images/pokemon-slowpoke.png', import.meta.url).href,
   price: 300,
   description: 'Slowpoke (Japanese: ヤドン Yadon) is a dual-type Water/Psychic Pokémon introduced in Generation I. It evolves into Slowbro starting at level 37 or Slowking when traded while holding a King\'s Rock.',
   inStock: true,
   options: [
-    { id: 3333, option: 'Slowpoke', image: new URL('../assets/images/pokemon-slowpoke.png', import.meta.url).href },
-    { id: 2222, option: 'Slowbro', image: new URL('../assets/images/pokemon-slowbro.png', import.meta.url).href },
+    { id: 3333, option: 'Slowpoke', image: new URL('/src/assets/images/pokemon-slowpoke.png', import.meta.url).href },
+    { id: 2222, option: 'Slowbro', image: new URL('/src/assets/images/pokemon-slowbro.png', import.meta.url).href },
   ],
 })
 </script>

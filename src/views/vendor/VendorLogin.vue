@@ -26,7 +26,7 @@ VendorHeader
 
 <script setup>
 import { reactive } from 'vue'
-import VendorHeader from '@/components/VendorHeader.vue'
+import VendorHeader from '@/components/vendor/VendorHeader.vue'
 
 const login = reactive({
   username: null,

@@ -1,10 +1,10 @@
 <template lang="pug">
-.vendor-category
-    .vendor-category__link
-      .vendor-category__name {{ props.category.name }}
-        .vendor-category__id {{ props.category.id }}
-      .vendor-category__icon
-        img.vendor-category__icon-svg(src='@/assets/icons/right-arrow.svg')
+.vendor-categories-item
+    .vendor-categories-item__link
+      .vendor-categories-item__name {{ props.category.name }}
+        .vendor-categories-item__id {{ props.category.id }}
+      .vendor-categories-item__icon
+        img.vendor-categories-item__icon-svg(src='@/assets/icons/right-arrow.svg')
 </template>
 
 <script setup>
@@ -14,12 +14,12 @@ const props = defineProps({
 </script>
 
 <style>
-.vendor-category
+.vendor-categories-item
   display: flex
   justify-content: space-between
   align-items: center
 
-.vendor-category__link
+.vendor-categories-item__link
   width: 60vw
   display: flex
   justify-content: space-between
@@ -30,14 +30,14 @@ const props = defineProps({
   cursor: pointer
   background: var(--lynx-white)
 
-.vendor-category__id
+.vendor-categories-item__id
   color: var(--kamenozoki-grey)
 
-.vendor-category__name
+.vendor-categories-item__name
   padding-left: 10px
   color: var(--nero)
 
-.vendor-category__icon
+.vendor-categories-item__icon
   display: flex
   align-items: center
   justify-content: center
@@ -46,7 +46,7 @@ const props = defineProps({
   height: 30px
   width: 30px
 
-.vendor-category__icon-svg
+.vendor-categories-item__icon-svg
   height: 14px
   width: 14px
 </style>

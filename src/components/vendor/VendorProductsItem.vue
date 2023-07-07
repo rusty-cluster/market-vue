@@ -1,16 +1,16 @@
 <template lang="pug">
-.vendor-product
-  .vendor-product__images
-    img.vendor-product__image(:src='props.product.image')
+.vendor-products-item
+  .vendor-products-item__images
+    img.vendor-products-item__image(:src='props.product.image')
 
-  .vendor-product__vendor-product-info
-    .vendor-product__name {{ props.product.name }}
-    .vendor-product__price ${{ props.product.price }}
-    .vendor-product__in-stock
-      span.vendor-product__in-stock In Stock
-    .vendor-product__description {{ props.product.description }}
+  .vendor-products-item__info
+    .vendor-products-item__name {{ props.product.name }}
+    .vendor-products-item__price ${{ props.product.price }}
+    .vendor-products-item__in-stock
+      span.products-item__in-stock In Stock
+    .vendor-products-item__description {{ props.product.description }}
 
-    .vendor-product__add-to-cart Edit
+    .vendor-products-item__add-to-cart Edit
 </template>
 
 <script setup>
@@ -20,7 +20,7 @@ const props = defineProps({
 </script>
 
 <style>
-.vendor-product
+.vendor-products-item
   margin: 0 0 2vh 0
   padding: 1vh
   flex-direction: column
@@ -29,15 +29,15 @@ const props = defineProps({
   border-radius: 20px
   background: var(--faded-grey)
 
-.vendor-product__images
+.vendor-products-item__images
   height: 100%
   margin: 2vh
 
-.vendor-product__image
+.vendor-products-item__image
   max-width: 100%
   height: auto
 
-.vendor-product__vendor-product-info
+.vendor-products-item__info
   display: flex
   border-radius: 24px
   flex-direction: column
@@ -45,20 +45,20 @@ const props = defineProps({
   background: var(--bleached-silk)
   box-shadow: 0 4px 20px var(--kamenozoki-grey)
 
-.vendor-product__name
+.vendor-products-item__name
   font-size: 20px
 
-.vendor-product__price
+.vendor-products-item__price
   font-size: 40px
 
-.vendor-product__in-stock
+.vendor-products-item__in-stock
   font-size: 14px
   padding-bottom: 30px
 
-.vendor-product__description
+.vendor-products-item__description
   color: var(--cloudy-today)
 
-.vendor-product__add-to-cart
+.vendor-products-item__add-to-cart
   font: inherit
   color: inherit
   background-color: transparent

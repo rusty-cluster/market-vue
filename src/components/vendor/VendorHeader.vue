@@ -1,12 +1,12 @@
 <template lang='pug'>
 .vendor-header
-  .vendor-header__icon-menu
-    img.vendor-header__icon-svg(src='@/assets/icons/menu.svg')
+  .vendor-header__icon
+    img.vendor-header__svg(src='@/assets/icons/menu.svg')
 
   .vendor-header__logo mrkt
 
-  .vendor-header__icon-search
-    img.vendor-header__icon-svg(src='@/assets/icons/magnifying-glass.svg')
+  .vendor-header__search
+    img.vendor-header__svg(src='@/assets/icons/magnifying-glass.svg')
 </template>
 
 <style>
@@ -20,7 +20,7 @@
   top: 0
   height: 10vh
 
-.vendor-header__icon-menu
+.vendor-header__menu
   display: flex
   align-items: center
   justify-content: center
@@ -30,7 +30,7 @@
   height: 30px
   width: 30px
 
-.vendor-header__icon-search
+.vendor-header__search
   display: flex
   align-items: center
   justify-content: center
@@ -40,7 +40,7 @@
   height: 34px
   width: 34px
 
-.vendor-header__icon-svg
+.vendor-header__svg
   height: 18px
   width: 18px
 
@@ -49,5 +49,4 @@
   font-size: 24px
   letter-spacing: -2px
   margin: 0 16px
-
 </style>

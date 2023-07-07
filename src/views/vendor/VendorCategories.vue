@@ -3,25 +3,23 @@ VendorHeader
 .vendor-categories
   h1.vendor-categories__title Categories
 
-  VendorCategory(
+  VendorCategoriesItem(
     v-for='category in categories'
     :category='category'
-    :key='categories.name'
+    :key='category.name'
   )
 
   .vendor-categories__add
-    router-link.vendor-categories__add-link(:to="{ name: 'VendorAddCategory' }")
-      .vendor-categories__add-name Add Category
-      .vendor-categories__add-icon
-        img.vendor-categories__add-icon-svg(src='@/assets/icons/plus.svg')
-VendorFooter
+    router-link.vendor-categories__link(:to="{ name: 'VendorCategoryAdd' }")
+      .vendor-categories__name Add Category
+      .vendor-categories__icon
+        img.vendor-categories__icon-svg(src='@/assets/icons/plus.svg')
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import VendorHeader from '@/components/VendorHeader.vue'
-import VendorCategory from '@/components/VendorCategory.vue'
-import VendorFooter from '@/components/VendorFooter.vue'
+import VendorHeader from '@/components/vendor/VendorHeader.vue'
+import VendorCategoriesItem from '@/components/vendor/VendorCategoriesItem.vue'
 
 const categories = ref([
   {
@@ -61,7 +59,7 @@ const categories = ref([
   justify-content: space-between
   align-items: center
 
-.vendor-categories__add-link
+.vendor-categories__link
   width: 44vw
   display: flex
   justify-content: space-between
@@ -72,18 +70,18 @@ const categories = ref([
   border: 2px solid var(--limone)
   cursor: pointer
 
-.vendor-categories__add-name
+.vendor-categories__name
   color: var(--nero)
   padding: 0 10px
 
-.vendor-categories__add-icon
+.vendor-categories__icon
   display: flex
   align-items: center
   justify-content: center
   height: 30px
   width: 30px
 
-.vendor-categories__add-icon-svg
+.vendor-categories__icon-svg
   height: 16px
   width: 16px
 </style>

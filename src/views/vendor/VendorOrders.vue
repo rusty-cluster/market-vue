@@ -1,21 +1,18 @@
 <template lang='pug'>
 VendorHeader
 .vendor-orders
-  h1.vendor-orders__title Order list
+  h1.vendor-orders__title Orders
 
-  VendorOrder(
+  VendorOrdersItem(
     v-for='order in orders'
     :order='order'
     :key='orders.id')
-
-VendorFooter
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import VendorHeader from '@/components/VendorHeader.vue'
-import VendorOrder from '@/components/VendorOrder.vue'
-import VendorFooter from '@/components/VendorFooter.vue'
+import VendorHeader from '@/components/vendor/VendorHeader.vue'
+import VendorOrdersItem from '@/components/vendor/VendorOrdersItem.vue'
 
 const orders = ref([
   {

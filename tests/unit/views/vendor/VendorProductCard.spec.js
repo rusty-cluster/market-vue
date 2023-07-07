@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
-import VendorProductCard from '@/views/VendorProductCard.vue'
+import VendorProductCard from '@/views/vendor/VendorProductCard.vue'
+import VendorProductCartItem from '@/components/vendor/VendorProductCartItem.vue'
 import { expect, test } from 'vitest'
 
 test('Renders title', () => {

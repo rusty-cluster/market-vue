@@ -1,11 +1,11 @@
 <template lang="pug">
-.vendor-order
-  .vendor-order__id {{ props.order.id }}
-  .vendor-order__date {{ props.order.date }}
-  .vendor-order__customer {{ props.order.customer }}
-  .vendor-order__status {{ props.order.status }}
+.vendor-orders-item
+  .vendor-orders-item__id {{ props.order.id }}
+  .vendor-orders-item__date {{ props.order.date }}
+  .vendor-orders-item__customer {{ props.order.customer }}
+  .vendor-orders-item__status {{ props.order.status }}
 
-  .vendor-order__total ${{ props.order.total }}
+  .vendor-orders-item__total ${{ props.order.total }}
 </template>
 
 <script setup>
@@ -15,7 +15,7 @@ const props = defineProps({
 </script>
 
 <style>
-.vendor-order
+.vendor-orders-item
   display: grid
   grid-template-areas:
    "order customer status"
@@ -27,28 +27,28 @@ const props = defineProps({
   padding: 1vh 2vh
   margin: 1vh 0
 
-.vendor-order__order
+.vendor-orders-item__order
   grid-area: order
   place-self: center
 
-.vendor-order__id
+.vendor-orders-item__id
   color: var(--holy-crow)
 
-.vendor-order__date
+.vendor-orders-item__date
   font-size: 14px
   color: var(--cloudy-today)
 
-.vendor-order__customer
+.vendor-orders-item__customer
   grid-area: customer
   justify-self: center
   color: var(--holy-crow)
 
-.vendor-order__status
+.vendor-orders-item__status
   grid-area: status
   justify-self: end
   color: var(--holy-crow)
 
-.vendor-order__total
+.vendor-orders-item__total
   grid-area: total
   justify-self: end
 </style>
