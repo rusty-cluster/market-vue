@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+const LandingPage = () => import('@/views/LandingPage.vue')
 const RetailerCart = () => import('@/views/retailer/RetailerCart.vue')
 const RetailerDashboard = () => import('@/views/retailer/RetailerDashboard.vue')
 const RetailerLogin = () => import('@/views/retailer/RetailerLogin.vue')
@@ -17,6 +18,11 @@ const VendorCategories = () => import('@/views/vendor/VendorCategories.vue')
 const VendorCategoryAdd = () => import('@/views/vendor/VendorCategoryAdd.vue')
 
 const routes = [
+  {
+    path: '/',
+    name: 'LandingPage',
+    component: LandingPage
+  },
   {
     path: '/retailer/cart',
     name: 'RetailerCart',
