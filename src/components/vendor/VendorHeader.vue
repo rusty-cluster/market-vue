@@ -3,7 +3,7 @@
   .vendor-header__icon
     img.vendor-header__svg(src='@/assets/icons/menu.svg')
 
-  .vendor-header__logo mrkt
+  .vendor-header__logo mrkt+
 
   .vendor-header__search
     img.vendor-header__svg(src='@/assets/icons/magnifying-glass.svg')

@@ -10,8 +10,6 @@ VendorHeader
   )
 
   .vendor-categories__add
-    router-link.vendor-categories__link(:to="{ name: 'VendorCategoryAdd' }")
-      .vendor-categories__name Add Category
       .vendor-categories__icon
         img.vendor-categories__icon-svg(src='@/assets/icons/plus.svg')
 </template>
