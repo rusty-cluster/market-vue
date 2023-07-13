@@ -4,6 +4,7 @@
 
 <style>
 :root
+  --background: #ffffff
   --bleached-silk: #f2f2f2
   --faded-grey: #e9e8e4
   --kamenozoki-grey: #c7c3b7
@@ -18,6 +19,14 @@
 @font-face
   font-family: 'Sofia'
   src: url('@/assets/fonts/sofia-regular.woff2') format('woff2')
+  font-weight: 400
+  font-style: normal
+ 
+@font-face
+  font-family: 'Sofia Light'
+  src: url('/@/assets/fonts/sofia-light.woff2') format('woff2')
+  font-weight: 300
+  font-style: normal
 
 body
   margin: 0
@@ -25,7 +34,7 @@ body
 
 .app
   min-height: 100vh
-  background: var(--faded-grey)
+  background: var(--background)
 
 a
   color: #808080
