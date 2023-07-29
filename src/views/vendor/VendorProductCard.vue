@@ -4,6 +4,7 @@ VendorHeader
 
   .vendor-product-card__category {{ product.category }}
   h1.vendor-product-card__name {{ product.name }}
+  .vendor-product-card__brand {{ product.brand }}
 
   .vendor-product-card__images
     img.vendor-product-card__image(:src='product.image')
@@ -15,16 +16,13 @@ VendorHeader
       )
       img.vendor-product-card__option-icon(:src='option.image')
 
+  p.vendor-product-card__description {{  product.description  }}
+  .vendor-product-card__price ${{  product.price  }}
+
   span.vendor-product-card__quantity-label.vendor-product-card__quantity-label_in-stock(v-if='product.inStock') In Stock
   span.vendor-product-card__quantity-label.vendor-product-card__quantity-label_out-of-stock(v-else) Out of Stock
 
-  .vendor-product-card__price ${{  product.price  }}
-  p.vendor-product-card__description {{  product.description  }}
-
-  router-link.vendor-product-card__edit(:to="{ name: 'VendorProductAdd' }")
-    .vendor-product-card__edit-text Edit
-    .vendor-product-card__edit-icon
-      img.vendor-product-card__edit-icon-svg(src='@/assets/icons/right-arrow.svg')
+  router-link.vendor-product-card__edit(:to="{ name: 'VendorProductAdd' }") Edit
 </template>
 
 <script setup>
@@ -34,6 +32,7 @@ import VendorProductCartItem from '@/components/vendor/VendorProductCartItem.vue
 
 const product = reactive({
   name: null,
+  brand: null,
   image: null,
   price: null,
   description: null,
@@ -45,15 +44,18 @@ function updateImage(imageURL) {
 }
 
 Object.assign(product, {
-  category: 'POKEMON',
-  name: 'Slowpoke',
-  image: new URL('/src/assets/images/pokemon-slowpoke.png', import.meta.url).href,
+  category: 'FACE',
+  brand: 'SAYGI',
+  name: 'Sunscreen Lotion',
+  image: new URL('/src/assets/images/product-1/SPF-lotion-1.jpg', import.meta.url).href,
   price: 300,
-  description: 'Slowpoke (Japanese: ヤドン Yadon) is a dual-type Water/Psychic Pokémon introduced in Generation I. It evolves into Slowbro starting at level 37 or Slowking when traded while holding a King\'s Rock.',
+  description: 'Sed et porttitor enim. Aenean risus neque, tincidunt vitae nibh vitae, varius efficitur mauris. Maecenas non feugiat nisi, ut sagittis nunc. Etiam non diam arcu. Maecenas mollis pretium sem id blandit. Cras venenatis enim nec maximus blandit.',
   inStock: true,
   options: [
-    { id: 3333, option: 'Slowpoke', image: new URL('/src/assets/images/pokemon-slowpoke.png', import.meta.url).href },
-    { id: 2222, option: 'Slowbro', image: new URL('/src/assets/images/pokemon-slowbro.png', import.meta.url).href },
+    { id: 3333, option1: 'Sunscreen Lotion', image: new URL('/src/assets/images/product-1/SPF-lotion-1.jpg', import.meta.url).href },
+    { id: 2222, option2: 'Sunscreen Lotion', image: new URL('/src/assets/images/product-1/SPF-lotion-2.jpg', import.meta.url).href },
+    { id: 4444, option3: 'Sunscreen Lotion', image: new URL('/src/assets/images/product-1/SPF-lotion-3.jpg', import.meta.url).href },
+    { id: 5555, option4: 'Sunscreen Lotion', image: new URL('/src/assets/images/product-1/SPF-lotion-4.jpg', import.meta.url).href },
   ],
 })
 </script>
@@ -68,78 +70,50 @@ Object.assign(product, {
   display: flex
   justify-content: center
 
-.vendor-product-card__name
+.vendor-product-card__brand
+  padding: 10px 0 20px
   display: flex
   justify-content: center
+  font-size: 20px
+  color: var(--cloudy-today)
+
+.vendor-product-card__name
   margin: 0 18px
+  text-align: center
+  line-height: 0.8
   font-weight: 400
   font-size: 40px
-  padding-bottom: 30px
-  line-height: 0.5
-
-.vendor-product-card__images
-  padding: 18px 18px 0 18px
-  background: var(--lynx-white)
 
 .vendor-product-card__image
   max-width: 100%
-  height: auto
+  object-fit: cover
 
 .vendor-product-card__options
   display: flex
-  padding: 18px
-  background: var(--lynx-white)
-
-.vendor-product-card__option
-  border: 1px solid var(--cloudy-today)
-  border-radius: 6px
-  margin-right: 20px
-  padding: 10px
-  border-radius: 10px
-
-.vendor-product-card__quantity-label
-  margin: 0 18px
-  padding-top: 18px
-
-.vendor-product-card__price
-  font-size: 40px
-  color: var(--limone)
-  line-height: 1
-  margin: 0 18px
-
-.vendor-product-card__description
-  margin: 18px
-  padding-bottom: 30px
 
 .vendor-product-card__option-icon
-  height: 70px
-  width: 70px
+  width: 25vw
+
+.vendor-product-card__quantity-label
+  margin: 0 2vh
+  color: var(--cloudy-today)
+
+.vendor-product-card__price
+  font-size: 30px
+  margin: 0 2vh
+
+.vendor-product-card__description
+  margin: 2vh
 
 .vendor-product-card__edit
-  width: 60vw
+  padding: 16px
+  margin: 30px
+  width: 40vw
   display: flex
-  justify-content: space-between
-  align-items: center
-  padding: 10px
-  margin: 20px auto
-  border-radius: 10px
-  cursor: pointer
-  background: var(--lynx-white)
-
-.vendor-product-card__edit-text
-  padding-left: 10px
-  color: var(--nero)
-
-.vendor-product-card__edit-icon
-  display: flex
-  align-items: center
   justify-content: center
-  background: var(--faded-grey)
-  border-radius: 100%
-  height: 30px
-  width: 30px
-
-.vendor-product-card__edit-icon-svg
-  height: 14px
-  width: 14px
+  align-self: center
+  cursor: pointer
+  color: var(--thamar-black)
+  border: 1px solid var(--thamar-black)
+  border-radius: 10px
 </style>

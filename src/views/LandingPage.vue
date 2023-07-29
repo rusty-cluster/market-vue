@@ -38,11 +38,11 @@ import { reactive } from 'vue'
   flex-direction: column
   box-sizing: border-box
   background-size: cover
-  background: #ffffff
+  background: var(--white)
   scroll-behavior: smooth
 
 .landing-page__header
-  background: #ffffff
+  padding: 0 2vh
   display: flex
   align-items: center
   box-sizing: border-box
@@ -50,17 +50,17 @@ import { reactive } from 'vue'
   top: 0
   height: 10vh
   width: 100%
-  padding: 0 2vh
+  background: var(--white)
 
 .landing-page__icon-menu
+  height: 30px
+  width: 30px
   display: flex
   align-items: center
   justify-content: center
   border: 2px solid var(--ski-patrol)
   border-radius: 8px
   cursor: pointer
-  height: 30px
-  width: 30px
 
 .landing-page__icon-search
   display: flex
