@@ -12,7 +12,7 @@ test('Renders title', () => {
     }
   })
 
-  expect(productCard.text()).toContain('Slowpoke')
+  expect(productCard.text()).toContain('Sunscreen Lotion')
 })
 
 test('Renders image of product', () => {
@@ -25,7 +25,7 @@ test('Renders image of product', () => {
   })
   const image = productCard.find('.vendor-product-card__image')
  
-  expect(image.html()).toContain('assets/images/pokemon-slowpoke.png')
+  expect(image.html()).toContain('assets/images/product-1/SPF-lotion-1.jpg')
 })
 
 test('Does not render absence of product', () => {

@@ -21,8 +21,8 @@ const props = defineProps({
 
 <style>
 .vendor-product-card-item
-  margin: 0 0 2vh 0
   padding: 1vh
+  margin: 0 0 2vh 0
   flex-direction: column
   display: flex
   border: 1px solid var(--kamenozoki-grey)
@@ -30,19 +30,19 @@ const props = defineProps({
   background: var(--faded-grey)
 
 .vendor-product-card-item__images
-  height: 100%
   margin: 2vh
+  height: 100%
 
 .vendor-product-card-item__image
   max-width: 100%
   height: auto
 
 .vendor-product-card-item__product-card-info
-  display: flex
-  border-radius: 24px
-  flex-direction: column
   padding: 2vh
+  display: flex
+  flex-direction: column
   background: var(--bleached-silk)
+  border-radius: 24px
   box-shadow: 0 4px 20px var(--kamenozoki-grey)
 
 .vendor-product-card-item__name

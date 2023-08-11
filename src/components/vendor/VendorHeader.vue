@@ -14,7 +14,7 @@
   display: flex
   align-items: center
   box-sizing: border-box
-  background: var(--faded-grey)
+  background: var(--white)
   padding: 0 2vh
   position: sticky
   top: 0
@@ -34,8 +34,6 @@
   display: flex
   align-items: center
   justify-content: center
-  background: var(--lynx-white)
-  border-radius: 100%
   cursor: pointer
   height: 34px
   width: 34px

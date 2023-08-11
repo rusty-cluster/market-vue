@@ -4,7 +4,7 @@
 
 <style>
 :root
-  --background: #ffffff
+  --white: #ffffff
   --bleached-silk: #f2f2f2
   --faded-grey: #e9e8e4
   --kamenozoki-grey: #c7c3b7
