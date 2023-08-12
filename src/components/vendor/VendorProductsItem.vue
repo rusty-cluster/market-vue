@@ -30,7 +30,7 @@ const props = defineProps({
   height: auto
 
 .vendor-products-item__info
-  margin: 0 0 20px
+  margin: 20px 0 20px
   display: flex
   flex-direction: column
   background: var(--white)
@@ -54,13 +54,13 @@ const props = defineProps({
 
 .vendor-products-item__edit
   padding: 16px
-  margin: 12px
-  width: 40vw
+  margin: 20px
+  width: 80vw
   display: flex
   justify-content: center
   align-self: center
   cursor: pointer
-  border: 1px solid var(--thamar-black)
+  border: 1px solid var(--faded-grey)
   border-radius: 10px
   background-color: transparent
 </style>

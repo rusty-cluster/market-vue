@@ -14,7 +14,7 @@ VendorHeader
         img.vendor-dashboard__icon-svg(src='@/assets/icons/right-arrow.svg')
 
   .vendor-dashboard__nav
-    router-link.vendor-dashboard__link(:to="{ name: 'VendorProductCard', params: { slug: 'pokemon-slowpoke' }}")
+    router-link.vendor-dashboard__link(:to="{ name: 'VendorProductCard', params: { slug: 'sunscreen-lotion' }}")
       .vendor-dashboard__title Product card
       .vendor-dashboard__icon
         img.vendor-dashboard__icon-svg(src='@/assets/icons/right-arrow.svg')
@@ -46,45 +46,34 @@ import VendorHeader from '@/components/vendor/VendorHeader.vue'
 <style>
 .vendor-dashboard
   margin: 0
-  padding: 20px 2vh
+  padding: 20px 8vw
   display: flex
   flex-direction: column
 
 .vendor-dashboard__nav
+  margin: 16px auto
+  width: 70vw
   display: flex
-  align-items: center
-  justify-content: center
   box-sizing: border-box
-  border: 1px solid var(--lynx-white)
+  border: 1px solid var(--faded-grey)
   border-radius: 10px
-  padding: 10px
-  margin: 12px auto
 
 .vendor-dashboard__link
+  width: 100%
   font-size: 20px
-  width: 60vw
   display: flex
   justify-content: space-between
-  align-items: center
-  padding: 10px
-  border-radius: 10px
+  padding: 20px
   cursor: pointer
-  background: var(--lynx-white)
 
 .vendor-dashboard__title
-  padding-left: 10px
   color: var(--nero)
 
 .vendor-dashboard__icon
   display: flex
   align-items: center
   justify-content: center
-  background: var(--faded-grey)
-  border-radius: 100%
-  height: 30px
-  width: 30px
 
 .vendor-dashboard__icon-svg
-  height: 14px
   width: 14px
 </style>

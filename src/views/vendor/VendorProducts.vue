@@ -2,7 +2,6 @@
 VendorHeader
 .vendor-products
 
-  h1.vendor-products__title Product List
   VendorProductsItem(
     v-for='product in products'
     :product='product'
@@ -84,11 +83,7 @@ const products = ref([
 
 <style>
 .vendor-products
-  padding: 0 2vh
+  padding: 0 8vw
   display: flex
   flex-direction: column
-
-.vendor-products__title
-  display: flex
-  justify-content: center
 </style>
