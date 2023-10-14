@@ -113,7 +113,7 @@ Object.assign(product, {
   justify-content: center
   align-self: center
   cursor: pointer
-  color: var(--thamar-black)
-  border: 1px solid var(--thamar-black)
+  color: var(--mine-shaft)
+  border: 1px solid var(--faded-grey)
   border-radius: 10px
 </style>

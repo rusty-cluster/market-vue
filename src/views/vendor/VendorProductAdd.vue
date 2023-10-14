@@ -53,7 +53,7 @@ form.product-add
     label.vendor-product-add__label(for='updated_at')
     input.vendor-product-add__input(readonly='true' :value='product.updated_at' name='updated_at')
 
-  router-link.vendor-product-add__submit(:to="{ name: 'VendorProductCard', params: { slug: 'pokemon-slowpoke' }}")
+  router-link.vendor-product-add__submit(:to="{ name: 'VendorProductCard', params: { slug: 'sunscreen-lotion' }}")
     span.vendor-product-add__submit-title Save
 </template>
 

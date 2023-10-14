@@ -14,7 +14,7 @@
   --lynx-white: #f7f7f7
   --limone: #d3bd48
   --nero: #262626
-  --thamar-black: #181818
+  --mine-shaft: #313131
 
 @font-face
   font-family: 'Sofia'
@@ -31,10 +31,10 @@
 body
   margin: 0
   font-family: 'Sofia'
+  color: var(--mine-shaft)
 
 .app
   min-height: 100vh
-  background: var(--background)
 
 a
   color: #808080

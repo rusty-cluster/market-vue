@@ -1,6 +1,6 @@
 <template lang='pug'>
 .vendor-header
-  .vendor-header__icon
+  .vendor-header__menu
     img.vendor-header__svg(src='@/assets/icons/menu.svg')
 
   .vendor-header__logo mrkt+
@@ -15,36 +15,31 @@
   align-items: center
   box-sizing: border-box
   background: var(--white)
-  padding: 0 2vh
+  padding: 0 8vw
   position: sticky
   top: 0
   height: 10vh
 
 .vendor-header__menu
+  width: 24px
   display: flex
   align-items: center
-  justify-content: center
-  border: 2px solid var(--kamenozoki-grey)
-  border-radius: 8px
-  cursor: pointer
-  height: 30px
-  width: 30px
 
 .vendor-header__search
+  width: 24px
   display: flex
   align-items: center
-  justify-content: center
-  cursor: pointer
-  height: 34px
-  width: 34px
-
-.vendor-header__svg
-  height: 18px
-  width: 18px
 
 .vendor-header__logo
-  flex: 1 1 auto
-  font-size: 24px
-  letter-spacing: -2px
+  padding: 20px
   margin: 0 16px
+  flex: 1 1 auto
+  font-size: 28px
+  text-align: center
+  letter-spacing: -2px
+  color: var(--mine-shaft)
+  cursor: pointer
+
+.vendor-header__svg
+  position: relative
 </style>
