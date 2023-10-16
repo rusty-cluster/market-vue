@@ -32,6 +32,17 @@ const login = reactive({
   username: null,
   password: null,
 })
+
+
+const submitForm = () => {
+  const formData = {
+    mail: login.mail,
+    password: login.password,
+    confirmPassword: login.confirmPassword
+  }
+
+  console.log(formData)
+}
 </script>
 
 <style>
