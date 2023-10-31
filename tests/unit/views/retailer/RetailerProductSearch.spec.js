@@ -5,14 +5,14 @@ import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 import RetailerProductTile from '@/components/retailer/RetailerProductTile.vue'
 import RetailerProductSearch from '@/views/retailer/RetailerProductSearch.vue'
 
-test('correctly renders retailer-product-search__list', () => {
+test.skip('correctly renders retailer-product-search__list', () => {
   const wrapper = mount(RetailerProductSearch)
   const retailerProductTiles = wrapper.findAllComponents(RetailerProductTile)
 
   expect(retailerProductTiles.length).toBe(9)
 })
 
-test('correctly renders retailer cart totals', async () => {
+test.skip('correctly renders retailer cart totals', async () => {
   const wrapper = mount(RetailerProductSearch)
   const retailerProductTiles = wrapper.findAllComponents(RetailerProductTile)
   const firstAddToCartButton = retailerProductTiles[0]

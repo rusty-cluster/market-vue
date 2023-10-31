@@ -1,10 +1,10 @@
 <template lang="pug">
 .retailer-orders
-  RetailerHeader
+  RetailerHeader(:cartItems='cartItems')
 
   ul.retailer-orders__list
     RetailerOrder(
-      v-for='order in stubOrders.slice().reverse()'
+      v-for='order in orders.slice().reverse()'
       :id='order.id'
       :timestamp='order.timestamp'
       :cartItems='order.cartItems'
@@ -15,74 +15,23 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { reactive, ref } from 'vue'
 
 import RetailerFooter from '@/components/retailer/RetailerFooter.vue'
 import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 import RetailerOrder from '@/components/retailer/RetailerOrder.vue'
 
-const stubOrders = ref([
-  {
-    id: 676373071000,
-    timestamp: 1676373071000,
-    cartItems: [
-      {
-        id: 1,
-        price: 450,
-        quantity: 1,
-      },
-      {
-        id: 4,
-        price: 340,
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: 676383871000,
-    timestamp: 1676383871000,
-    cartItems: [
-      {
-        id: 81,
-        price: 410,
-        quantity: 2,
-      },
-    ],
-  },
-  {
-    id: 676384051000,
-    timestamp: 1676384051000,
-    cartItems: [
-      {
-        id: 16,
-        price: 340,
-        quantity: 3,
-      },
-    ],
-  },
-  {
-    id: 676384054000,
-    timestamp: 1676384054000,
-    cartItems: [
-      {
-        id: 7,
-        price: 350,
-        quantity: 1,
-      },
-    ],
-  },
-  {
-    id: 676416454000,
-    timestamp: 1676416454000,
-    cartItems: [
-      {
-        id: 79,
-        price: 300,
-        quantity: 11,
-      },
-    ],
-  },
-])
+const cartItems = ref([])
+const orders = ref([])
+
+onMounted(async () => {
+  const cartItemsResponse = await fetch('mocks/retailer-cart-items')
+  const ordersResponse = await fetch('mocks/retailer-orders')
+
+  cartItems.value = await cartItemsResponse.json()
+  orders.value = await ordersResponse.json()
+})
 </script>
 
 <style>

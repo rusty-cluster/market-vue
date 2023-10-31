@@ -1,5 +1,5 @@
 <template lang="pug">
-RetailerHeader
+RetailerHeader(:cartItems='cartItems')
 .retailer-dashboard
   .retailer-dashboard__nav
     router-link.retailer-dashboard__nav-link(:to="{ name: 'RetailerProductSearch' }") Search product
@@ -20,8 +20,19 @@ RetailerFooter
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
+import { reactive, ref } from 'vue'
+
 import RetailerFooter from '@/components/retailer/RetailerFooter.vue'
 import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
+
+const cartItems = ref([])
+
+onMounted(async () => {
+  const cartItemsResponse = await fetch('mocks/retailer-cart-items')
+
+  cartItems.value = await cartItemsResponse.json()
+})
 </script>
 
 <style>

@@ -19,6 +19,7 @@ const emit = defineEmits(['addOrIncreaseQuantity'])
 
 const productInfo = {
   id: props.product['id'],
+  name: props.product['name'],
   price: props.product['price'],
   quantity: 1,
 }
