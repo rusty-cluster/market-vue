@@ -30,7 +30,7 @@ VendorHeader
         name='confirmPassword'
         required
       )
-    .vendor-registration__submit(type='submit') Save
+    .vendor-registration__submit(type='submit' @click="submitForm") Save
 </template>
 
 <script setup>
@@ -42,12 +42,22 @@ const registration = reactive({
   password: null,
   confirmPassword: null,
 })
+
+const submitForm = () => {
+  const formData = {
+    mail: registration.mail,
+    password: registration.password,
+    confirmPassword: registration.confirmPassword
+  }
+
+  console.log(formData)
+}
 </script>
 
 <style>
 .vendor-registration
   margin: 0
-  padding: 0 2vh
+  padding: 0 8vw
   display: flex
   flex-direction: column
 
