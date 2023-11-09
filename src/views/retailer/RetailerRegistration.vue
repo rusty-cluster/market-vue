@@ -1,50 +1,66 @@
 <template lang="pug">
 RetailerHeader
+
 .retailer-registration
   h1.retailer-registration__title Sign up
 
-  form.retailer-registration__form
+  form.retailer-registration__form(@submit.prevent='default')
     p.retailer-registration__form-item
-      label.retailer-registration__form-label(for='mail') Mail
+      label.retailer-registration__form-label(for='name') Name
       input.retailer-registration__form-input(
-        v-model.trim='registration.mail'
+        v-model.lazy.trim='retailerRegistrationForm.name'
+        type='text'
+        placeholder='your.name'
+        name='name'
+        required
+      )
+    
+    p.retailer-registration__form-item
+      label.retailer-registration__form-label(for='email') Mail
+      input.retailer-registration__form-input(
+        v-model.lazy.trim='retailerRegistrationForm.email'
         type='email'
         placeholder='your.email@domain.com'
-        name='mail'
+        name='email'
         required
       )
     
     p.retailer-registration__form-item
       label.retailer-registration__form-label(for='password') Password
       input.retailer-registration__form-input(
-        v-model.trim='registration.password'
+        v-model.lazy.trim='retailerRegistrationForm.password'
         type='password'
         name='password'
         required
       )
 
-    p.retailer-registration__form-item
-      label.retailer-registration__form-label(for='confirm-password') Confirm password
-      input.retailer-registration__form-input(
-        v-model.trim='registration.confirmPassword'
-        type='password'
-        name='confirm-password'
-        required
-      )
-
-    .retailer-registration__button(type='submit') Submit
+    .retailer-registration__button(type='submit' @click='onRetailerRegister') Save
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
+import router from '@/router'
+import retailerClient from '@/api/retailer-client'
+import { useRetailerStore } from '@/stores/retailer'
 
 import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 
-const registration = reactive({
-  mail: null,
-  password: null,
-  confirmPassword: null,
+const retailer = useRetailerStore()
+
+const retailerRegistrationForm = reactive({
+  email: null,
+  name: null,
+  password: null
 })
+
+const onRetailerRegister = async () => {
+  try {
+    await retailer.register({ retailer: retailerRegistrationForm })
+    router.push({ path: '/retailer' })
+  } catch {
+    console.log("🐗 can't register retailer")
+  }
+}
 </script>
 
 <style>
