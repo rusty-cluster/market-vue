@@ -52,10 +52,11 @@ import VendorHeader from '@/components/vendor/VendorHeader.vue'
 
 .vendor-dashboard__nav
   margin: 16px auto
-  width: 70vw
+  width: 100%
   display: flex
+  justify-content: space-between
   box-sizing: border-box
-  border: 1px solid var(--faded-grey)
+  border: 1px solid var(--kamenozoki-grey)
   border-radius: 10px
 
 .vendor-dashboard__link
