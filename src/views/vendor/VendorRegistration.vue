@@ -4,53 +4,63 @@ VendorHeader
   h1.vendor-registration__title Sign up
 
   form.vendor-registration__form
-    p.vendor-registration__form-item
-      label.vendor-registration__form-label(for='username') Mail
-      input.vendor-registration__form-input(
-        v-model=' registration.mail'
+    p.vendor-registration__item
+      label.vendor-registration__label(for='name') Name
+      input.vendor-registration__input(
+        v-model=' vendorForm.name'
         type='text'
-        placeholder='elon@musk.io'
-        name='mail'
+        placeholder='John'
+        name='name'
         required
       )
-    p.vendor-registration__form-item
-      label.vendor-registration__form-label(for='password') Password
-      input.vendor-registration__form-input(
-        v-model=' registration.password'
+
+    p.vendor-registration__item
+      label.vendor-registration__label(for='email') Email
+      input.vendor-registration__input(
+        v-model=' vendorForm.email'
+        type='email'
+        placeholder='john@gmail.io'
+        name='email'
+        required
+      )
+    p.vendor-registration__item
+      label.vendor-registration__label(
+        type="password"
+        autocomplete="new-password"
+        id="new-password"
+        ) Password
+      input.vendor-registration__input(
+        v-model=' vendorForm.password'
         type='password'
         name='password'
         required
       )
 
-    p.vendor-registration__form-item
-      label.vendor-registration__form-label(for='confirmPassword') Confirm password
-      input.vendor-registration__form-input(
-        v-model=' registration.confirmPassword'
-        type='password'
-        name='confirmPassword'
-        required
-      )
-    .vendor-registration__submit(type='submit' @click="submitForm") Save
+    .vendor-registration__submit(type='submit' @click="registerVendor") Create account
 </template>
 
 <script setup>
 import { reactive } from 'vue'
 import VendorHeader from '@/components/vendor/VendorHeader.vue'
+import vendorClient from '@/api/vendor-client'
+import { useVendorStore } from '@/stores/vendor'
+import router from '@/router'
 
-const registration = reactive({
-  mail: null,
+const vendor = useVendorStore()
+
+const vendorForm = reactive({
+  name: null,
+  email: null,
   password: null,
-  confirmPassword: null,
 })
 
-const submitForm = () => {
-  const formData = {
-    mail: registration.mail,
-    password: registration.password,
-    confirmPassword: registration.confirmPassword
+const registerVendor = async () => {
+  try {
+    await vendor.register({ vendor: vendorForm })
+    router.push({ path: '/vendor' })
+  } catch {
+    console.log("🐗 can't register vendor")
   }
-
-  console.log(formData)
 }
 </script>
 
@@ -64,7 +74,7 @@ const submitForm = () => {
 .vendor-registration__title
   display: flex
   justify-content: center
-  color: var(--limone)
+  color: var(--nero)
   margin: 10px
 
 .vendor-registration__form
@@ -72,32 +82,34 @@ const submitForm = () => {
   flex-direction: column
   box-sizing: border-box
 
-.vendor-registration__form-item
+.vendor-registration__item
   display: flex
   flex-direction: column
+  margin: 16px 0
 
-.vendor-registration__form-label
+.vendor-registration__label
   display: flex
   font-size: 18px
+  padding: 10px 0
 
-.vendor-registration__form-input
+.vendor-registration__input
   display: flex
-  color: var(--holy-crow)
+  color: var(--nero)
   background: var(--lynx-white)
-  border: none
-  border-radius: 6px
   font-family: 'Sofia'
   font-size: 16px
-  padding: 10px
+  padding: 16px 20px
+  box-sizing: border-box
+  border: 1px solid var(--kamenozoki-grey)
+  border-radius: 10px
 
 .vendor-registration__submit
-  width: 24vw
   display: flex
   justify-content: center
-  padding: 10px
-  margin: 20px auto
+  padding: 16px 20px
+  margin: 4vh 0
   border-radius: 10px
   cursor: pointer
-  background: var(--limone)
+  background: var(--nero)
   color: var(--lynx-white)
 </style>
