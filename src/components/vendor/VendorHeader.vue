@@ -38,7 +38,6 @@
   text-align: center
   letter-spacing: -2px
   color: var(--mine-shaft)
-  cursor: pointer
 
 .vendor-header__svg
   position: relative

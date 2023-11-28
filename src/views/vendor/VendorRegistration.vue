@@ -3,11 +3,11 @@ VendorHeader
 .vendor-registration
   h1.vendor-registration__title Sign up
 
-  form.vendor-registration__form
+  form.vendor-registration__form(@submit.prevent='default')
     p.vendor-registration__item
       label.vendor-registration__label(for='name') Name
       input.vendor-registration__input(
-        v-model=' vendorForm.name'
+        v-model.lazy.trim='vendorForm.name'
         type='text'
         placeholder='John'
         name='name'
@@ -17,26 +17,26 @@ VendorHeader
     p.vendor-registration__item
       label.vendor-registration__label(for='email') Email
       input.vendor-registration__input(
-        v-model=' vendorForm.email'
+        v-model.lazy.trim='vendorForm.email'
         type='email'
-        placeholder='john@gmail.io'
+        placeholder='john@doe.io'
         name='email'
         required
       )
     p.vendor-registration__item
       label.vendor-registration__label(
-        type="password"
-        autocomplete="new-password"
-        id="new-password"
-        ) Password
+        for='password'
+        type='password'
+        id='new-password'
+      ) Password
       input.vendor-registration__input(
-        v-model=' vendorForm.password'
+        v-model.lazy.trim='vendorForm.password'
         type='password'
         name='password'
         required
       )
 
-    .vendor-registration__submit(type='submit' @click="registerVendor") Create account
+    .vendor-registration__submit(type='submit' @click='registerVendor') Create account
 </template>
 
 <script setup>
