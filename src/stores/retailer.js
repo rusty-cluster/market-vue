@@ -9,6 +9,16 @@ export const useRetailerStore = defineStore('retailer', () => {
     password: null
   })
 
+  async function login(retailerData) {
+    try {
+      retailer.value = await retailerClient.login(retailerData)
+    } catch(error) {
+      retailer.value = {}
+
+      return Promise.reject(error)
+    }
+  }
+
   async function register(retailerData) {
     try {
       retailer.value = await retailerClient.register(retailerData)
@@ -21,6 +31,7 @@ export const useRetailerStore = defineStore('retailer', () => {
 
   return {
     retailer,
+    login,
     register
   }
 })

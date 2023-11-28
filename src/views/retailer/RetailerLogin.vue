@@ -3,38 +3,52 @@ RetailerHeader
 .retailer-login
   h1.retailer-login__title Log in
 
-  form.retailer-login__form
+  form.retailer-login__form(@submit.prevent='default')
     p.retailer-login__form-item
-      label.retailer-login__form-label(for='mail') Mail
+      label.retailer-login__form-label(for='email') Mail
       input.retailer-login__form-input(
-        v-model.trim='login.mail'
+        v-model.lazy.trim='retailerLoginForm.email'
         type='email'
         placeholder='your.email@domain.com'
-        name='mail'
+        name='email'
         required
       )
     
     p.retailer-login__form-item
       label.retailer-login__form-label(for='password') Password
       input.retailer-login__form-input(
-        v-model.trim='login.password'
+        v-model.lazy.trim='retailerLoginForm.password'
         type='password'
         name='password'
         required
       )
 
-    .retailer-login__button(type='submit') Submit
+    .retailer-login__button(type='submit' @click='onRetailerLogin') Sign In
 </template>
 
 <script setup>
 import { reactive } from 'vue'
+import router from '@/router'
+import retailerClient from '@/api/retailer-client'
+import { useRetailerStore } from '@/stores/retailer'
 
 import RetailerHeader from '@/components/retailer/RetailerHeader.vue'
 
-const login = reactive({
-  mail: null,
-  password: null,
+const retailer = useRetailerStore()
+
+const retailerLoginForm = reactive({
+  email: null,
+  password: null
 })
+
+const onRetailerLogin = async () => {
+  try {
+    await retailer.login({ retailer: retailerLoginForm })
+    router.push({ path: '/retailer' })
+  } catch {
+    console.log("🐗 can't sign in retailer")
+  }
+}
 </script>
 
 <style>
