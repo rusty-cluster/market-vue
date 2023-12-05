@@ -3,6 +3,7 @@
   router-link.retailer-header__menu-button(:to="{ name: 'RetailerDashboard' }")
     img.retailer-header__icon-svg(src='@/assets/icons/menu.svg')
   span.retailer-header__logo mrkt
+  span.retailer-header__email {{ retailer }}
   span.retailer-header__cart-total-price ${{ cartTotalPrice }}
   span.retailer-header__cart-total-quantity  qty {{ cartTotalQuantity }}
   router-link.retailer-header__go-to-cart-button(:to="{ name: 'RetailerCart' }")
@@ -11,10 +12,15 @@
 
 <script setup>
 import { computed } from 'vue'
+import { reactive, ref } from 'vue'
+import retailerClient from '@/api/retailer-client'
+import { useRetailerStore } from '@/stores/retailer'
 
 const props = defineProps({
   cartItems: { type: Array, default: () => [] },
 })
+
+const retailer = useRetailerStore()
 
 const cartTotalPrice = computed(() => {
   return props.cartItems.reduce((acc, currentCartItem) => {
