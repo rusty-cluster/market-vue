@@ -28,7 +28,7 @@ export default {
         body: JSON.stringify(vendor),
       })
 
-      const data = (await response.json()).data
+      const data = (await response.json())
 
       if (response.status != 201) { throw data }
       return data
