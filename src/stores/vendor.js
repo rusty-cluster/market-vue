@@ -13,7 +13,7 @@ export const useVendorStore = defineStore('vendor', () => {
     try {
       Object.assign(vendor, await vendorClient.register(vendorData))
     } catch(error) {
-      vendor.vendor = {}
+      vendor.id = null
       return Promise.reject(error)
     }
   }

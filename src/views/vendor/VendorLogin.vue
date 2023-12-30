@@ -47,7 +47,7 @@ const loginVendor = async () => {
     await vendor.login({ vendor: vendorForm })
     router.push({ path: '/vendor' })
   } catch {
-    console.log("🐗 can't register vendor")
+    console.log("🐗 can't login vendor")
   }
 }
 </script>
