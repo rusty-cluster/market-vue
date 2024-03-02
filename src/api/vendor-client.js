@@ -10,7 +10,7 @@ export default {
         body: JSON.stringify(vendor),
       })
 
-      const data = (await response.json()).data
+      const data = (await response.json())
       if (response.status != 201) { throw data }
 
       return data
@@ -28,9 +28,26 @@ export default {
         body: JSON.stringify(vendor),
       })
 
-      const data = (await response.json()).data
+      const data = (await response.json())
 
       if (response.status != 201) { throw data }
+      return data
+    } catch(error) {
+      return Promise.reject(error)
+    }
+  },
+
+  async show() {
+    try {
+      const response = await fetch(`${back}/vendors/show`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+      })
+
+      const data = (await response.json())
+
+      if (response.status != 200) { throw data }
       return data
     } catch(error) {
       return Promise.reject(error)

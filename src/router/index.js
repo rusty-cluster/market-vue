@@ -59,7 +59,7 @@ const routes = [
     component: VendorDashboard
   },
   {
-    path: '/vendor/registration',
+    path: '/vendor/register',
     name: 'VendorRegistration',
     component: VendorRegistration
   },

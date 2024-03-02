@@ -4,25 +4,34 @@ import vendorClient from '@/api/vendor-client.js'
 
 export const useVendorStore = defineStore('vendor', () => {
   const vendor = reactive({
+    id: null,
     name: null,
     email: null,
-    password: null,
   })
 
   async function register(vendorData) {
     try {
-      vendor.value = await vendorClient.register(vendorData)
+      Object.assign(vendor, await vendorClient.register(vendorData))
     } catch(error) {
-      vendor.value = {}
+      vendor.id = null
       return Promise.reject(error)
     }
   }
 
   async function login(vendorData) {
     try {
-      vendor.value = await vendorClient.login(vendorData)
+      Object.assign(vendor, await vendorClient.login(vendorData))
     } catch(error) {
-      vendor.value = {}
+      vendor.id = null
+      return Promise.reject(error)
+    }
+  }
+
+  async function show() {
+    try {
+      Object.assign(vendor, await vendorClient.show())
+    } catch(error) {
+      vendor.id = null
       return Promise.reject(error)
     }
   }
@@ -30,6 +39,7 @@ export const useVendorStore = defineStore('vendor', () => {
   return {
     vendor,
     register,
-    login
+    login,
+    show
   }
 })

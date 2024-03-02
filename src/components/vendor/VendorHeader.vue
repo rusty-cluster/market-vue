@@ -5,9 +5,21 @@
 
   .vendor-header__logo mrkt+
 
+  .vendor-header__email {{ vendor.vendor.email }}
+  //.vendor-header__logout Logout
+
   .vendor-header__search
     img.vendor-header__svg(src='@/assets/icons/magnifying-glass.svg')
 </template>
+
+<script setup>
+import { reactive } from 'vue'
+import { useVendorStore } from '@/stores/vendor'
+
+const vendor = useVendorStore()
+
+vendor.show()
+</script>
 
 <style>
 .vendor-header
@@ -41,4 +53,15 @@
 
 .vendor-header__svg
   position: relative
+
+
+.vendor-header__logout
+  display: flex
+  justify-content: center
+  padding: 8px 10px
+  margin: 0 20px
+  border-radius: 10px
+  cursor: pointer
+  background: var(--nero)
+  color: var(--lynx-white)
 </style>
