@@ -27,9 +27,9 @@ export const useVendorStore = defineStore('vendor', () => {
     }
   }
 
-  async function show(vendorData) {
+  async function show() {
     try {
-      Object.assign(vendor, await vendorClient.show(vendorData))
+      Object.assign(vendor, await vendorClient.show())
     } catch(error) {
       vendor.id = null
       return Promise.reject(error)

@@ -5,7 +5,8 @@
 
   .vendor-header__logo mrkt+
 
-  .vendor-header__logout Logout
+  .vendor-header__email {{ vendor.vendor.email }}
+  //.vendor-header__logout Logout
 
   .vendor-header__search
     img.vendor-header__svg(src='@/assets/icons/magnifying-glass.svg')
@@ -16,6 +17,8 @@ import { reactive } from 'vue'
 import { useVendorStore } from '@/stores/vendor'
 
 const vendor = useVendorStore()
+
+vendor.show()
 </script>
 
 <style>

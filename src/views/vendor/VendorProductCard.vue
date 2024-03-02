@@ -16,8 +16,8 @@ VendorHeader
       )
       img.vendor-product-card__option-icon(:src='option.image')
 
-  p.vendor-product-card__description {{  product.description  }}
-  .vendor-product-card__price ${{  product.price  }}
+  p.vendor-product-card__description {{ product.description }}
+  .vendor-product-card__price ${{ product.price }}
 
   span.vendor-product-card__quantity-label.vendor-product-card__quantity-label_in-stock(v-if='product.inStock') In Stock
   span.vendor-product-card__quantity-label.vendor-product-card__quantity-label_out-of-stock(v-else) Out of Stock
